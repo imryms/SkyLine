@@ -31,7 +31,7 @@
 ***
 ### ***ERD***
 
-![ERD](#)
+![ERD](https://www.figma.com/design/ciPSBZ5082UqWZQhGpL3di/Untitled?node-id=0-1&t=jVGd74pZ4mudLORG-1)
 ***
 ### ***Wireframe***
 
