@@ -1,18 +1,56 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🛬 SkyLine - Flight Booking Platform
 
-Currently, two official plugins are available:
+## Date: 15/04/2026
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### By: Maryam Altammam - Zainab Aljad - Fatema BuSharar
 
-## React Compiler
+#### [Website](#)
+#### [Maryam's GitHub](https://github.com/imryms) | [Zainab's GitHub](https://github.com/Zaljad) | [Fatema's GitHub](https://github.com/FatemaBuSharar) |
+#### [Maryam's LinkedIn](https://www.linkedin.com/in/maryam-altammam/) | [Zainabs's LinkedIn](https://www.linkedin.com/in/zainabaljad/) | [Fatema's LinkedIn](https://www.linkedin.com/in/fatemabusharar/) |
+***
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### ***Description***
+#### SkyLine is a Full-stack flight booking platform. It allows users to search for flights, manage their reservations, and update booking details seamlessly using the MERN stack.
+***
 
-Note: This will impact Vite dev & build performances.
+### ***Technologies Used***
+* Frontend: React.js & Axios.
+* Backend: Node.js & Express.
+* Database: MongoDB & Mongoose.
+* Styling: CSS
+***
+### 🔗 Project Links
 
-## Expanding the ESLint configuration
+- **Backend Repository:** [[ Backend Repo ](https://github.com/imryms/SkyLine-backend)]
+***
+### ***Hierarchy Diagram***
+![Hierarchy Diagram](/Images/SkyLine%20Hierarchy%20Diagram.png)
+***
+### ***ERD***
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+![ERD](#)
+***
+
+### ***Getting Started***
+
+##### Search, Book, and Manage your flights with ease ✈️.
+
+##### The project was deployed and can be viewed [here](#).
+***
+
+### ***Screenshots***
+
+##### Home page
+![image](#)
+
+##### Booking page
+![image](#)
+
+##### MyBooking page
+![image](#)
+
+***
+
+
