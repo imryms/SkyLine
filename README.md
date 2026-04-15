@@ -1,4 +1,4 @@
-# SkyLine-backend
+# SkyLine
 # 🛬 SkyLine - Flight Booking Platform
 
 ## Date: 15/04/2026
@@ -24,7 +24,7 @@
 ***
 ### 🔗 Project Links
 
-- **Frontend Repository:** [[ Frontend Repo ](https://github.com/imryms/SkyLine)]
+- **Backend Repository:** [[ Backend Repo ](https://github.com/imryms/SkyLine-backend)]
 ***
 ### ***Hierarchy Diagram***
 ![Hierarchy Diagram](/Images/SkyLine%20Hierarchy%20Diagram.png)
