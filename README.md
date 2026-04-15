@@ -1,4 +1,4 @@
-
+# SkyLine-backend
 # 🛬 SkyLine - Flight Booking Platform
 
 ## Date: 15/04/2026
@@ -12,6 +12,8 @@
 
 ### ***Description***
 #### SkyLine is a Full-stack flight booking platform. It allows users to search for flights, manage their reservations, and update booking details seamlessly using the MERN stack.
+
+##### A Trello board was used to keep track of development progress and can be viewed [here](#).
 ***
 
 ### ***Technologies Used***
@@ -22,13 +24,12 @@
 ***
 ### 🔗 Project Links
 
-- **Backend Repository:** [[ Backend Repo ](https://github.com/imryms/SkyLine-backend)]
+- **Frontend Repository:** [[ Frontend Repo ](https://github.com/imryms/SkyLine)]
 ***
 ### ***Hierarchy Diagram***
 ![Hierarchy Diagram](/Images/SkyLine%20Hierarchy%20Diagram.png)
 ***
 ### ***ERD***
-
 
 ![ERD](#)
 ***
@@ -57,4 +58,14 @@
 
 ***
 
+### ***Future Updates***
+
+- [ ] Interactive Seat Selection
+- [ ] Multi-currency Support
+- [ ] Email Notifications
+***
+
+### ***Credits***
+
+##### - [Lucidchart](https://lucid.app/) - Used for creating the Hierarchy Diagram.
 
