@@ -1,4 +1,4 @@
-
+# SkyLine
 # 🛬 SkyLine - Flight Booking Platform
 
 ## Date: 15/04/2026
@@ -12,6 +12,8 @@
 
 ### ***Description***
 #### SkyLine is a Full-stack flight booking platform. It allows users to search for flights, manage their reservations, and update booking details seamlessly using the MERN stack.
+
+##### A Trello board was used to keep track of development progress and can be viewed [here](https://trello.com/b/oWfImqRq).
 ***
 
 ### ***Technologies Used***
@@ -29,8 +31,13 @@
 ***
 ### ***ERD***
 
+![ERD](/Images/ERD-SkyLine.jpg)
+***
+### ***Wireframe***
+![Wireframe](/Images/Wireframe.png)
 
-![ERD](#)
+[Wireframe Link](https://www.figma.com/design/ciPSBZ5082UqWZQhGpL3di/Untitled?node-id=0-1&t=jVGd74pZ4mudLORG-1)
+
 ***
 
 ### ***Getting Started***
@@ -53,4 +60,14 @@
 
 ***
 
+### ***Future Updates***
+
+- [ ] Interactive Seat Selection
+- [ ] Multi-currency Support
+- [ ] Email Notifications
+***
+
+### ***Credits***
+
+##### - [Lucidchart](https://lucid.app/) - Used for creating the Hierarchy Diagram.
 
