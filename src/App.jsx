@@ -12,9 +12,12 @@ import Register from './pages/Register'
 import { useEffect, useState } from 'react'
 import { jwtDecode } from 'jwt-decode'
 import Profile from './pages/Profile'
+import FlightForm from './pages/adminPages/AddFlight'
 
 function App() {
   const [user, setUser]=useState(null)
+
+  const [flights, setFlights] = useState([])
 
   useEffect(()=> {
     const token = localStorage.getItem("token")
@@ -48,6 +51,7 @@ function App() {
 
         <Route path="/flights" element={<Flights />} />
         <Route path="/flights/:id" element={<FlightDetails />} />
+        <Route path="/add-flight" element={<FlightForm flights={flights} setFlights={setFlights}/>} />
         <Route path="/booking/:id" element={<Booking />} />
       </Routes>
 
