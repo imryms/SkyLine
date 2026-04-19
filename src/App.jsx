@@ -6,12 +6,12 @@ import Home from './pages/Home'
 import Flights from './pages/Flights'
 import FlightDetails from './pages/FlightDetails'
 import Booking from './pages/Booking'
-import MyBookings from './pages/Profile'
-import Login from './pages/Login'
-import Register from './pages/Register'
+import MyBookings from './pages/profilePages/Profile'
+import Login from './pages/authPages/Login'
+import Register from './pages/authPages/Register'
 import { useEffect, useState } from 'react'
 import { jwtDecode } from 'jwt-decode'
-import Profile from './pages/Profile'
+import Profile from './pages/profilePages/Profile'
 
 function App() {
   const [user, setUser]=useState(null)
@@ -44,7 +44,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register setUser={setUser} />} />
-        <Route path="/bookings" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
 
         <Route path="/flights" element={<Flights />} />
         <Route path="/flights/:id" element={<FlightDetails />} />
