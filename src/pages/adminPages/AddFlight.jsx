@@ -20,17 +20,17 @@ const Flight =({ flights, setFlights }) => {
     isDirect:true
   }
 
-  const [fromState, setFormState] = useState(initialState)
+  const [formState, setFormState] = useState(initialState)
 
   const handleChange = (event) =>{
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-    setFormState({ ...fromState, [event.target.name]: value})
+    setFormState({ ...formState, [event.target.name]: value})
   }
 
   const handleSubmit = async (event) =>{
     event.preventDefault()
 
-    const res = await axios.post(`${API_URL}/flights`,fromState)
+    const res = await axios.post(`${API_URL}/flights`,formState)
 
     let flightsList = [...flights]
     flightsList.push(res.data)
@@ -38,11 +38,11 @@ const Flight =({ flights, setFlights }) => {
 
 
   setFormState(initialState)
-  navigate(`/flights/${res.data._id}`)
+  navigate(`/`)
   }
 
   return(
-    <div classNme="Flights">
+    <div className="Flights">
       <form className="Flights-form" onSubmit={handleSubmit}>
         <h1>Create New Flight ✈️</h1>
 
@@ -51,7 +51,7 @@ const Flight =({ flights, setFlights }) => {
         type="text"
         name="flightNum"
         onChange={handleChange}
-        value={fromState.flightNum}
+        value={formState.flightNum}
         autoComplete="off"/>
 
         <label>AirLine ID:</label>
@@ -59,7 +59,7 @@ const Flight =({ flights, setFlights }) => {
         type="text"
         name="airLineId"
         onChange={handleChange}
-        value={fromState.airLineId}
+        value={formState.airLineId}
         autoComplete="off"/>
 
         <label>Departure Airport:</label>
@@ -67,7 +67,7 @@ const Flight =({ flights, setFlights }) => {
         type="text"
         name="departureAirport"
         onChange={handleChange}
-        value={fromState.departureAirport}
+        value={formState.departureAirport}
         autoComplete="off"/>
 
         <label>Arrival Airport:</label>
@@ -75,7 +75,7 @@ const Flight =({ flights, setFlights }) => {
         type="text"
         name="arrivalAirport"
         onChange={handleChange}
-        value={fromState.arrivalAirport}
+        value={formState.arrivalAirport}
         autoComplete="off"/>
 
         <label>Fight Date:</label>
@@ -83,7 +83,7 @@ const Flight =({ flights, setFlights }) => {
         type="date"
         name="flightDate"
         onChange={handleChange}
-        value={fromState.flightDate}
+        value={formState.flightDate}
         autoComplete="off"/>
 
         <label>Departure Time:</label>
@@ -91,7 +91,7 @@ const Flight =({ flights, setFlights }) => {
         type="time"
         name="departureTime"
         onChange={handleChange}
-        value={fromState.departureTime}
+        value={formState.departureTime}
         autoComplete="off"/>
 
         <label>Arrival Time</label>
@@ -99,7 +99,7 @@ const Flight =({ flights, setFlights }) => {
         type="time"
         name="arrivalTime"
         onChange={handleChange}
-        value={fromState.arrivalTime}
+        value={formState.arrivalTime}
         autoComplete="off"/>
 
         <label>Price</label>
@@ -107,7 +107,7 @@ const Flight =({ flights, setFlights }) => {
         type="Number"
         name="price"
         onChange={handleChange}
-        value={fromState.price}
+        value={formState.price}
         autoComplete="off"/>
 
         <label>Available Seats:</label>
@@ -115,7 +115,7 @@ const Flight =({ flights, setFlights }) => {
         type="number"
         name="availableSeats"
         onChange={handleChange}
-        value={fromState.availableSeats}
+        value={formState.availableSeats}
         autoComplete="off"/>
 
         <label>Duration:</label>
@@ -123,7 +123,7 @@ const Flight =({ flights, setFlights }) => {
         type="text"
         name="duration"
         onChange={handleChange}
-        value={fromState.duration}
+        value={formState.duration}
         autoComplete="off"/>
 
         <label>Direct</label>
@@ -131,7 +131,7 @@ const Flight =({ flights, setFlights }) => {
         type="checkbox"
         name="isDirect"
         onChange={handleChange}
-        value={fromState.isDirect}
+        value={formState.isDirect}
         autoComplete="off"/>
 
         <button type="submit">Add Flight</button>
