@@ -11,6 +11,9 @@ import Login from './pages/authPages/Login'
 import Register from './pages/authPages/Register'
 import { useEffect, useState } from 'react'
 import { jwtDecode } from 'jwt-decode'
+import Profile from './pages/Profile'
+import FlightForm from './pages/adminPages/AddFlight'
+import AirLineForm from './pages/adminPages/AddAirLine'
 import Profile from './pages/profilePages/Profile'
 import EditProfile from './pages/profilePages/EditProfile'
 import ChangePassword from './pages/authPages/ChangePassword'
@@ -19,6 +22,10 @@ import { Navigate } from 'react-router-dom'
 
 function App() {
   const [user, setUser]=useState(null)
+
+  const [flights, setFlights] = useState([])
+
+  const [airLins, setAirLines] = useState([])
 
   useEffect(()=> {
     const token = localStorage.getItem("token")
@@ -51,9 +58,10 @@ function App() {
         <Route path="/profile" element={user ? <Profile /> : <Home />} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/change-password" element={user? <ChangePassword/> : <Navigate to="/" />} />
-
         <Route path="/flights" element={<Flights />} />
         <Route path="/flights/:id" element={<FlightDetails />} />
+        <Route path="/add-flight" element={<FlightForm flights={flights} setFlights={setFlights}/>} />
+        <Route path="/add-airLin" element={<AirLineForm airLines={airLins} setFlights={setAirLines}/>} />
         <Route path="/booking/:id" element={<Booking />} />
       </Routes>
 
