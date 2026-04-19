@@ -11,8 +11,12 @@ const NavBar = ({user, handleLogout})=> {
         {
   user ? (
     <>
-      {user.isAdmin ? (
+      {user.role ==="admin" ? (
+        <>
         <Link to="/manage-flights">Manage Flights</Link>
+        <Link to="/manage-bookings">Manage Bookings</Link>
+</>
+
       ) : (
         <Link to="/my-bookings">My Bookings</Link>
       )}
