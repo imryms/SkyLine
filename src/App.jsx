@@ -12,6 +12,10 @@ import Register from './pages/authPages/Register'
 import { useEffect, useState } from 'react'
 import { jwtDecode } from 'jwt-decode'
 import Profile from './pages/profilePages/Profile'
+import EditProfile from './pages/profilePages/EditProfile'
+import ChangePassword from './pages/authPages/ChangePassword'
+
+import { Navigate } from 'react-router-dom'
 
 function App() {
   const [user, setUser]=useState(null)
@@ -44,7 +48,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/register" element={<Register setUser={setUser} />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={user ? <Profile /> : <Home />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/change-password" element={user? <ChangePassword/> : <Navigate to="/" />} />
 
         <Route path="/flights" element={<Flights />} />
         <Route path="/flights/:id" element={<FlightDetails />} />

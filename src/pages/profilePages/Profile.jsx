@@ -1,17 +1,22 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { Link, useNavigate } from "react-router-dom"
 const API_URL = import.meta.env.VITE_API_URL
 
 const Profile = () => {
   const [user, setUser] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(()=> {
     const getProfile = async () => {
       try {
         const token = localStorage.getItem("token")
+        if (!token) {
+          navigate("/")
+          }
         const response = await axios.get(`${API_URL}/users/profile`,{
           headers: {
-            Authorization:`Bareer ${token}`
+           Authorization: `Bearer ${token}`
           }
         })
         setUser(response.data.user)
@@ -22,7 +27,7 @@ const Profile = () => {
       }
     }
     getProfile()
-  }, [])
+  }, [navigate])
   if (!user) return <h2 className="Loading">Loading</h2>
   return (
     <div className="profile">
@@ -31,7 +36,14 @@ const Profile = () => {
       <p><strong>Email:</strong>  {user.email}</p>
       <p><strong>Phone:</strong>  {user.phoneNumber}</p>
 
+    <Link to="/edit-profile">
+    <button>Edit Profile</button>
+    </Link>
+    <Link to="/change-password">
+    <button>Change Password</button>
+    </Link>
     </div>
+
 
   )
 }
