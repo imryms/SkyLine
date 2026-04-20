@@ -28,7 +28,6 @@ const EditFlight =({ flights, setFlights }) => {
         const flightData = res.data
         console.log(flightData)
 
-        // comp
         const formattedDate = flightData.flightDate ? new Date(flightData.flightDate).toISOString().split('T')[0] : ""
 
         setFormData({
