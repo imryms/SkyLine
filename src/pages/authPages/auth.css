@@ -1,78 +1,107 @@
-.register-page, .loginPage {
+.register-page,
+.loginPage {
+  min-height: calc(100vh - 60px);
+  overflow: hidden;
+  background: #eef4ff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
   padding: 40px 20px;
 }
 
-.register-page h2, .loginPage h2  {
-  font-size: 28px;
-  font-weight: 500;
-  color: #1a2c3e;
-  margin: 0 0 6px 0;
+.register-page form,
+.loginPage form {
+  background: white;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  border-radius: 16px;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  position: relative;
+}
+
+.register-page form::before,
+.loginPage form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  background: rgb(29, 29, 71);
+  border-radius: 0 0 4px 4px;
+}
+
+.register-page form h2,
+.loginPage form h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
   text-align: center;
 }
 
-.register-page form, .loginPage form {
-  background: #ffffff;
-  padding: 32px 28px;
-  border-radius: 20px;
-  border: 1px solid #eef2f6;
+.register-page form input,
+.loginPage form input {
   width: 100%;
-  max-width: 400px;
-}
-
-.register-page input, .loginPage input {
-  width: 100%;
-  box-sizing: border-box;
-  height: 44px;
-  padding: 0 14px;
-  font-size: 14px;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  color: #1a2c3e;
-  background: #ffffff;
-  margin-bottom: 14px;
-}
-
-.register-page input:focus, .loginPage input:focus {
-  border-color: #3b82f6;
+  padding: 10px 13px;
+  background: #f8faff;
+  border: 1px solid rgba(37, 99, 235, 0.13);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #0f172a;
   outline: none;
 }
 
-.register-page button, .loginPage button {
-  width: 100%;
-  height: 44px;
-  background: rgb(29, 29, 71);
-  color: white;
-  font-size: 14px;
-  font-weight: 500;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 6px;
+.register-page form input:focus,
+.loginPage form input:focus {
+  border-color: rgb(29, 29, 71);
+  background: white;
 }
 
-.register-page button:hover, .loginPage button:hover {
-  background: #adadad;
+.register-page form input::placeholder,
+.loginPage form input::placeholder {
+  color: #c0cedf;
+  font-size: 12px;
+}
+
+.register-page form button,
+.loginPage form button {
+  width: 100%;
+  padding: 12px;
+  background: rgb(29, 29, 71);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.register-page form button:hover,
+.loginPage form button:hover {
+  background: #1d4ed8;
 }
 
 .switch-auth {
   text-align: center;
-  font-size: 14px;
-  color: #5a6e7c;
-  padding-top: 18px;
+  font-size: 12px;
+  color: #94a3b8;
 }
 
 .switch-auth span {
-  color: #1e4a76;
+  color: rgb(29, 29, 71);
+  font-weight: 500;
   cursor: pointer;
-  font-weight: 520;
-  transition: all 0.2s;
 }
 
-.switch-auth span:hover {
-  color: #0f3552;
-  text-decoration: underline;
+.error-message {
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 10px;
+  text-align: center;
 }

@@ -103,7 +103,7 @@ const Register = ({ setUser }) => {
         </p>
       </form>
 
-      {error && <p>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
     </div>
   )
 }
