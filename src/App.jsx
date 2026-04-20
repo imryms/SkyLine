@@ -1,3 +1,4 @@
+import './App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { Routes, Route, matchPath } from 'react-router-dom'
@@ -60,7 +61,10 @@ function App() {
 
   return (
     <>
+      <div className="app">
       <Navbar user={user} handleLogout={handleLogout} />
+      <main className="content">
+
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -75,8 +79,10 @@ function App() {
         <Route path="/add-airLin" element={<AirLineForm airLines={airLins} setFlights={setAirLines}/>} />
         <Route path="/booking/:id" element={<Booking />} />
       </Routes>
+      </main>
 
       <Footer />
+      </div >
     </>
   )
 }

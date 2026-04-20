@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f8ff;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+.navbar {
+  background: rgb(29, 29, 71);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.links a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.links a:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.links button {
+  background-color: white;
+  color: rgb(29, 29, 71);
+  border: none;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.links button:hover {
+  background-color: #e3f2fd;
+  transform: translateY(-1px);
+}
+/* Footer */
+.footer {
+  background: rgb(29, 29, 71);
+  text-align: center;
+  padding: 20px;
+}
+
+.footer p {
+  font-size: 14px;
+  color: white;
+  margin: 0;
+}
