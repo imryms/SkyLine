@@ -1,7 +1,8 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, matchPath } from 'react-router-dom'
+import axios from 'axios'
 
 import Home from './pages/Home'
 import Flights from './pages/Flights'
@@ -25,6 +26,8 @@ function App() {
 
   const [flights, setFlights] = useState([])
 
+  const [flight, setFlight] = useState([])
+
   const [airLins, setAirLines] = useState([])
 
   useEffect(()=> {
@@ -41,6 +44,17 @@ function App() {
         setUser(null)
       }
     }
+
+    const fetchFlight = async()=>{
+      try {
+        const res = await axios.get (`${import.meta.env.VITE_API_URL}/flights`)
+        setFlights(res.data)
+      } catch (error) {
+        console.error("Error fetching flights:" ,error)
+      }
+    }
+    fetchFlight()
+
   },[])
   const handleLogout = () => {
     localStorage.removeItem("token")
@@ -48,7 +62,7 @@ function App() {
   }
 
   return (
-    <>
+
       <div className="app">
       <Navbar user={user} handleLogout={handleLogout} />
       <main className="content">
@@ -61,7 +75,7 @@ function App() {
         <Route path="/profile" element={user ? <Profile /> : <Home />} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/change-password" element={user? <ChangePassword/> : <Navigate to="/" />} />
-        <Route path="/flights" element={<Flights />} />
+        <Route path="/flights" element={<Flights flights={flights}/>} />
         <Route path="/flights/:id" element={<FlightDetails />} />
         <Route path="/add-flight" element={<FlightForm flights={flights} setFlights={setFlights}/>} />
         <Route path="/add-airLin" element={<AirLineForm airLines={airLins} setFlights={setAirLines}/>} />
@@ -71,7 +85,7 @@ function App() {
 
       <Footer />
       </div >
-    </>
+    
   )
 }
 
