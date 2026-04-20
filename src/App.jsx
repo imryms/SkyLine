@@ -22,6 +22,7 @@ import ChangePassword from './pages/authPages/ChangePassword'
 import { Navigate } from 'react-router-dom'
 import ManageFlights from './pages/adminPages/MangeFlights'
 import ManageAirLines from './pages/adminPages/ManageAirLines'
+import EditFlight from './pages/adminPages/EditFlight'
 
 function App() {
   const [user, setUser]=useState(null)
@@ -90,6 +91,7 @@ function App() {
         <Route path="/flights/:id" element={<FlightDetails />} />
         <Route path="/manage-flights" element={<ManageFlights  flights={flights}  setFlights={setFlights}/>} />
         <Route path="/add-flight" element={<FlightForm flights={flights} setFlights={setFlights}/>} />
+        <Route path="/edit-flight/:id" element={<EditFlight flights={flights} setFlights={setFlights} />} />
         <Route path="/manage-airLines" element={<ManageAirLines  airLines={airLines}  setAirLines={setAirLines}/>} />
         <Route path="/add-airLine" element={<AirLineForm airLines={airLines} setFlights={setAirLines}/>} />
         <Route path="/booking/:id" element={<Booking />} />
