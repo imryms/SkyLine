@@ -1,0 +1,145 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.skyline-home {
+  background: #f0f7ff;
+  min-height: 100vh;
+}
+
+.hero {
+  background: rgb(29, 29, 71);
+  padding: 5rem 2.5rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(64, 164, 214, 0.15);
+  border: 1px solid rgba(64, 164, 214, 0.3);
+  color: #7bc5e8;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #72e7e7;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  position: relative;
+}
+
+.hero h1 span {
+  color: #c8e7f5;
+}
+
+.hero p {
+  color: #b8d8ee;
+  font-size: 1rem;
+  opacity: 0.85;
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  position: relative;
+}
+
+.heroButtons {
+  background: #72e7e7;
+  color: #0a1a24;
+  padding: 12px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+  display: inline-block;
+}
+
+.heroButtons:hover {
+  background: #5ba9c9;
+}
+
+
+.features {
+  padding: 4rem 2.5rem;
+  background: #f0f7ff;
+}
+
+.section-label {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #2c7aa0;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: center;
+  color: #0a2a3b;
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  text-align: center;
+  color: #2c7aa0;
+  font-size: 0.88rem;
+  opacity: 0.75;
+  margin-bottom: 2.5rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid rgba(44, 122, 160, 0.12);
+  border-radius: 8px;
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.feature-card:hover {
+  border-color: #3a8bbb;
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.feature-card h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0a2a3b;
+  margin-bottom: 0.4rem;
+}
+
+.feature-card p {
+  font-size: 0.78rem;
+  color: #2c7aa0;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+

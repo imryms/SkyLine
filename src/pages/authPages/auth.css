@@ -1,0 +1,78 @@
+.register-page, .loginPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+}
+
+.register-page h2, .loginPage h2  {
+  font-size: 28px;
+  font-weight: 500;
+  color: #1a2c3e;
+  margin: 0 0 6px 0;
+  text-align: center;
+}
+
+.register-page form, .loginPage form {
+  background: #ffffff;
+  padding: 32px 28px;
+  border-radius: 20px;
+  border: 1px solid #eef2f6;
+  width: 100%;
+  max-width: 400px;
+}
+
+.register-page input, .loginPage input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 44px;
+  padding: 0 14px;
+  font-size: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #1a2c3e;
+  background: #ffffff;
+  margin-bottom: 14px;
+}
+
+.register-page input:focus, .loginPage input:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+.register-page button, .loginPage button {
+  width: 100%;
+  height: 44px;
+  background: rgb(29, 29, 71);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.register-page button:hover, .loginPage button:hover {
+  background: #adadad;
+}
+
+.switch-auth {
+  text-align: center;
+  font-size: 14px;
+  color: #5a6e7c;
+  padding-top: 18px;
+}
+
+.switch-auth span {
+  color: #1e4a76;
+  cursor: pointer;
+  font-weight: 520;
+  transition: all 0.2s;
+}
+
+.switch-auth span:hover {
+  color: #0f3552;
+  text-decoration: underline;
+}
