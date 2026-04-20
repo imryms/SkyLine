@@ -26,6 +26,8 @@ function App() {
 
   const [flights, setFlights] = useState([])
 
+  const [flight, setFlight] = useState([])
+
   const [airLins, setAirLines] = useState([])
 
   useEffect(()=> {
@@ -60,7 +62,7 @@ function App() {
   }
 
   return (
-    <>
+
       <div className="app">
       <Navbar user={user} handleLogout={handleLogout} />
       <main className="content">
@@ -83,7 +85,7 @@ function App() {
 
       <Footer />
       </div >
-    </>
+    
   )
 }
 
