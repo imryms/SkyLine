@@ -17,7 +17,7 @@ const EditAirLine =({ airLines, setAirLines }) => {
   useEffect(()=>{
     const fetchAirLine = async()=>{
       try {
-        const res = await axios.get (`${import.meta.env.VITE_API_URL}/airLine/${id}`)
+        const res = await axios.get (`${import.meta.env.VITE_API_URL}/airLines/${id}`)
         const airLineData = res.data
         console.log(airLineData)
 
@@ -43,7 +43,7 @@ const EditAirLine =({ airLines, setAirLines }) => {
   const handleSubmit = async (event) =>{
     event.preventDefault()
     try {
-      const res = await axios.put(`${API_URL}/airLine/${id}`, formData)
+      const res = await axios.put(`${API_URL}/airLines/${id}`, formData)
 
       const updateAirLines = airLines.map(airLine => airLine._id
         === id ? res.data :airLine)
