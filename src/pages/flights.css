@@ -1,0 +1,115 @@
+.flightsPage {
+  min-height: calc(100vh - 60px);
+  padding: 50px 20px;
+  background: linear-gradient(180deg, #eef4ff, #ffffff);
+}
+
+.flightsHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.flightsHeader h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.flightsHeader p {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.flightsGrid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.flightCard {
+  background: white;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: 0.2s ease;
+}
+
+.flightCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.flightTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.flightTop h3 {
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.flightNum {
+  font-size: 12px;
+  color: rgb(29, 29, 71);
+  background: rgba(37, 99, 235, 0.08);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.flightRoute {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.routeBox {
+  flex: 1;
+}
+
+.label {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.routeBox h4 {
+  font-size: 1rem;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.routeBox span {
+  font-size: 13px;
+  color: #475569;
+}
+
+.routeArrow {
+  font-size: 1.2rem;
+  color: rgb(29, 29, 71);
+  font-weight: bold;
+}
+
+.detailsBtn {
+  text-decoration: none;
+  text-align: center;
+  background: rgb(29, 29, 71);
+  color: white;
+  padding: 11px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.detailsBtn:hover {
+  background: #1d4ed8;
+}
