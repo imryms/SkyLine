@@ -26,7 +26,7 @@ const ManageFlights = ({flights, setFlights}) => {
           <div key={flight._id} className='flight-card'>
 
             <div className='flight-header'>
-              <h3>{flight.airLineId?.airLineName || "AirLine"}</h3>
+              <h3>{flight.airLineCode?.airLineName || "AirLine"}</h3>
               <span className='flight-num'>{flight.flightNum}</span>
             </div>
             <div className='flight-info'>
@@ -42,7 +42,9 @@ const ManageFlights = ({flights, setFlights}) => {
             </div>
 
             <div className='flight-footer'>
-              <p className='price'>Price: {flight.price} BHD</p>
+              <p className='price'>Economy: {flight.price?.economy} BHD</p>
+              <p className='price'>Business: {flight.price?.business} BHD</p>
+              <p className='price'>First Class: {flight.price?.firstClass} BHD</p>
             </div>
 
             <Link to={`/edit-flight/${flight._id}`} className="edit-btn">Edit🔧</Link>

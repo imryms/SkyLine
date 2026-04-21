@@ -29,11 +29,11 @@ const FlightDetails = () => {
 
       <div className="details-card">
         <div className="details-header">
-          <h1>{flight.airLinId?.airLinName}</h1>
-          <img src={flight.airLinId?.logoURL} alt="AirLine Logo" className="airLine-logo-size" />
+          <h1>{flight.airLineCode?.airLinName}</h1>
+          <img src={flight.airLineCode?.logoURL} alt="AirLine Logo" className="airLine-logo-size" />
         </div>
 
-        <div className="space=grid">
+        <div className="space-grid">
           <div className="spec">
             <p><strong>Flight Number:</strong> {flight.flightNum}</p>
           </div>
