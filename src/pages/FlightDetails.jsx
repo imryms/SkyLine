@@ -51,6 +51,10 @@ const FlightDetails = () => {
           </div>
 
           <div className="spec">
+            <p><strong>Duration:</strong> {flight.duration}</p>
+          </div>
+
+          <div className="spec">
             <p><strong>First Class:</strong> {flight.price?.firstClass} BHD</p>
             <p><strong>Business:</strong> {flight.price?.business} BHD</p>
             <p><strong>Economy:</strong> {flight.price?.economy} BHD</p>
