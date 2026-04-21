@@ -9,13 +9,17 @@ const EditFlight =({ flights, setFlights }) => {
 
   const [formData, setFormData] = useState({
     flightNum:"",
-    airLineId: "",
+    airLineCode: "",
     departureAirport:"",
     arrivalAirport: "",
     flightDate: "",
     departureTime: "",
     arrivalTime:"",
-    price:50,
+    price:{
+      firstClass:0,
+      business:0,
+      economy:0
+    },
     availableSeats:100,
     duration:"",
     isDirect:true
@@ -32,13 +36,17 @@ const EditFlight =({ flights, setFlights }) => {
 
         setFormData({
           flightNum: flightData.flightNum,
-          airLineId: flightData.airLineId?._id || flightData.airLineId,
+          airLineCode: flightData.airLineCode?._id || flightData.airLineCode,
           departureAirport: flightData.departureAirport,
           arrivalAirport: flightData.arrivalAirport,
           flightDate: formattedDate,
           departureTime: flightData.departureTime,
           arrivalTime: flightData.arrivalTime,
-          price: flightData.price,
+          price: {
+            firstClass: flightData.price.firstClass,
+            business: flightData.price.business,
+            economy: flightData.price.economy
+          },
           availableSeats: flightData.availableSeats,
           duration: flightData.duration,
           isDirect: flightData.isDirect
@@ -52,8 +60,22 @@ const EditFlight =({ flights, setFlights }) => {
 
 
   const handleChange = (event) =>{
-    const {name, value, type, checked} = event.target
-    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value})
+    const { name, value, type, checked}= event.target
+    const val = type === 'checkbox' ? checked : value
+
+    if(name.includes('.')){
+      const [parent, child] = name.split('.')
+      setFormData(prev => ({
+        ...prev,
+        [parent]:{
+          ...prev[parent],
+          [child]:val
+        }
+      }))
+    }else{
+      setFormData( prev =>({...prev, [name]: val}))
+    }
+
   }
 
   const handleSubmit = async (event) =>{
@@ -87,9 +109,9 @@ const EditFlight =({ flights, setFlights }) => {
         <label>AirLine ID:</label>
         <input
         type="text"
-        name="airLineId"
+        name="airLineCode"
         onChange={handleChange}
-        value={formData.airLineId}
+        value={formData.airLineCode}
         autoComplete="off"/>
 
         <label>Departure Airport:</label>
@@ -132,12 +154,28 @@ const EditFlight =({ flights, setFlights }) => {
         value={formData.arrivalTime}
         autoComplete="off"/>
 
-        <label>Price</label>
+        <label>First Class Price</label>
         <input
-        type="Number"
-        name="price"
+        type="number"
+        name="price.firstClass"
         onChange={handleChange}
-        value={formData.price}
+        value={formData.price.firstClass}
+        autoComplete="off"/>
+
+        <label>Business Class Price</label>
+        <input
+        type="number"
+        name="price.business"
+        onChange={handleChange}
+        value={formData.price.business}
+        autoComplete="off"/>
+
+        <label>Economy Price</label>
+        <input
+        type="number"
+        name="price.economy"
+        onChange={handleChange}
+        value={formData.price.economy}
         autoComplete="off"/>
 
         <label>Available Seats:</label>

@@ -30,10 +30,15 @@ const Profile = () => {
     getProfile()
   }, [navigate])
   if (!user) return <h2 className="Loading">Loading</h2>
-return (
+  return (
   <div className="profilePage">
-    <div className="profileBox">
-      <h2>My Profile</h2>
+
+    <div className="profileHeader">
+      <h1>My Profile</h1>
+      <p>Your personal information</p>
+    </div>
+
+    <div className="profileContent">
 
       <div className="info">
         <div className="row">
@@ -61,9 +66,12 @@ return (
           <button className="lightBtn">Change Password</button>
         </Link>
       </div>
+
     </div>
+
   </div>
 )
+
 }
 export default Profile
 

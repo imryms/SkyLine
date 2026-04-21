@@ -106,51 +106,52 @@
   text-align: center;
 }
 
-.changePassword {
+.changePasswordPage {
   min-height: calc(100vh - 60px);
-  overflow: hidden;
-  background: #eef4ff;
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #eef4ff, #ffffff);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
 }
 
-.changePassword form {
-  background: white;
-  border: 1px solid rgba(37, 99, 235, 0.1);
-  border-radius: 16px;
-  padding: 32px 28px;
+.profileHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profileHeader h1 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.profileHeader p {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.passwordForm {
   width: 100%;
-  max-width: 380px;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
-  gap: 13px;
-  position: relative;
+  gap: 18px;
 }
 
-.changePassword form::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 24px;
-  right: 24px;
-  height: 2px;
-  background: rgb(29, 29, 71);
-  border-radius: 0 0 4px 4px;
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.changePassword form h2 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #0f172a;
-  text-align: center;
+.inputGroup label {
+  font-size: 12px;
+  color: #94a3b8;
 }
 
-.changePassword form input {
-  width: 100%;
-  padding: 10px 13px;
+.passwordForm input {
+  padding: 11px 13px;
   background: #f8faff;
   border: 1px solid rgba(37, 99, 235, 0.13);
   border-radius: 8px;
@@ -159,18 +160,13 @@
   outline: none;
 }
 
-.changePassword form input:focus {
+.passwordForm input:focus {
   border-color: rgb(29, 29, 71);
   background: white;
 }
 
-.changePassword form input::placeholder {
-  color: #c0cedf;
-  font-size: 12px;
-}
-
-.changePassword form button {
-  width: 100%;
+.passwordForm button {
+  margin-top: 10px;
   padding: 12px;
   background: rgb(29, 29, 71);
   color: white;
@@ -179,11 +175,10 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 4px;
+  transition: 0.2s;
 }
 
-.changePassword form button:hover {
+.passwordForm button:hover {
   background: #1d4ed8;
 }
-
 

@@ -54,7 +54,6 @@ const Flight = ({ flights, setFlights, airLines }) => {
     setFlights(flightsList)
 
     setFormState(initialState)
-    navigate(`/`)
   }
 
   return (
@@ -184,7 +183,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
           autoComplete="off"
         />
 
-        <button type="submit">Add Flight</button>
+        <button type="submit" onClick={() => navigate("/manage-flights")}>
+          Add Flight
+        </button>
       </form>
     </div>
   )
