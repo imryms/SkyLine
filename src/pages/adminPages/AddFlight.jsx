@@ -8,13 +8,17 @@ const Flight =({ flights, setFlights, airLines }) => {
 
   const initialState = {
     flightNum:"",
-    airLineId: "",
+    airLineCode: "",
     departureAirport:"",
     arrivalAirport: "",
     flightDate: "",
     departureTime: "",
     arrivalTime:"",
-    price:50,
+    price:{
+      firstClass:0,
+      business:0,
+      economy:0
+    },
     availableSeats:100,
     duration:"",
     isDirect:true
@@ -23,8 +27,22 @@ const Flight =({ flights, setFlights, airLines }) => {
   const [formState, setFormState] = useState(initialState)
 
   const handleChange = (event) =>{
-    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
-    setFormState({ ...formState, [event.target.name]: value})
+    const { name, value, type, checked}= event.target
+    const val = type === 'checkbox' ? checked : value
+
+    if(name.includes('.')){
+      const [parent, child] = name.split('.')
+      setFormState(prev => ({
+        ...prev,
+        [parent]:{
+          ...prev[parent],
+          [child]:val
+        }
+      }))
+    }else{
+      setFormState( prev =>({...prev, [name]: val}))
+    }
+
   }
 
   const handleSubmit = async (event) =>{
@@ -104,12 +122,28 @@ const Flight =({ flights, setFlights, airLines }) => {
         value={formState.arrivalTime}
         autoComplete="off"/>
 
-        <label>Price</label>
+        <label>First Class Price</label>
         <input
-        type="Number"
-        name="price"
+        type="number"
+        name="price.firstClass"
         onChange={handleChange}
-        value={formState.price}
+        value={formState.price.firstClass}
+        autoComplete="off"/>
+
+        <label>Business Class Price</label>
+        <input
+        type="number"
+        name="price.business"
+        onChange={handleChange}
+        value={formState.price.business}
+        autoComplete="off"/>
+
+        <label>Economy Price</label>
+        <input
+        type="number"
+        name="price.economy"
+        onChange={handleChange}
+        value={formState.price.economy}
         autoComplete="off"/>
 
         <label>Available Seats:</label>
