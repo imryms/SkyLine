@@ -22,6 +22,7 @@ import ChangePassword from "./pages/authPages/ChangePassword"
 import { Navigate } from "react-router-dom"
 import ManageFlights from "./pages/adminPages/MangeFlights"
 import ManageAirLines from "./pages/adminPages/ManageAirLines"
+import BookingSuccess from "./pages/BookingPages/BookingSuccess"
 
 function App() {
   const [user, setUser] = useState(null)
@@ -108,6 +109,7 @@ function App() {
             }
           />
           <Route path="/booking/:id" element={<Booking />} />
+          <Route path="/booking-success/:id" element={<BookingSuccess />} />
         </Routes>
       </main>
 

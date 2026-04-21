@@ -4,7 +4,7 @@ import axios from "axios"
 
 const API_URL = import.meta.env.VITE_API_URL
 
-const Success = () => {
+const BookingSuccess = () => {
   const navigate = useNavigate()
   const { id } = useParams()
 
@@ -84,4 +84,4 @@ const Success = () => {
   )
 }
 
-export default Success
+export default BookingSuccess

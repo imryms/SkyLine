@@ -1,14 +1,14 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios"
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 const API_URL = import.meta.env.VITE_API_URL
 
-const Book = ({ bookings, setBookings }) => {
+const Booking = ({ bookings, setBookings }) => {
   const navigate = useNavigate()
-  const location = useLocation()
+  const { id: flightID } = useParams()
 
-  const flight = location.state?.flight
+  const [flight, setFlight] = useState(null)
 
   const [formState, setFormState] = useState({
     ticketType: "",
@@ -18,6 +18,20 @@ const Book = ({ bookings, setBookings }) => {
   })
 
   const [error, setError] = useState("")
+
+  // ✈️ جلب بيانات الرحلة
+  useEffect(() => {
+    const getFlight = async () => {
+      try {
+        const res = await axios.get(`${API_URL}/flights/${flightID}`)
+        setFlight(res.data)
+      } catch (err) {
+        console.log("Error loading flight:", err)
+      }
+    }
+
+    getFlight()
+  }, [flightID])
 
   const handleChange = (e) => {
     setFormState({
@@ -40,6 +54,7 @@ const Book = ({ bookings, setBookings }) => {
         setError("Add at least one passenger")
         return
       }
+
       if (!formState.ticketType) {
         setError("Select ticket type")
         return
@@ -47,17 +62,20 @@ const Book = ({ bookings, setBookings }) => {
 
       const response = await axios.post(`${API_URL}/bookings/create`, {
         userID: localStorage.getItem("userID"),
-        flightID: flight._id,
-        ticketType,
+        flightID: flightID,
+        ticketType: formState.ticketType,
         passengers,
       })
 
       setBookings([...bookings, response.data])
 
+      // ✔️ مهم: response.data مباشرة
       navigate(`/booking-success/${response.data._id}`)
     } catch (error) {
-      console.log(error.response?.data)
-      setError(error.response?.data || "Something went wrong")
+      console.log("FULL ERROR:", error)
+      console.log("RESPONSE ERROR:", error.response)
+
+      setError(error.response?.data?.error || "Something went wrong")
     }
   }
 
@@ -65,10 +83,11 @@ const Book = ({ bookings, setBookings }) => {
     <div className="booking">
       <form onSubmit={handleSubmit}>
         <h2>Book Flight ✈️</h2>
-
-        <p>
-          {flight?.departureAirport} → {flight?.arrivalAirport}
-        </p>
+        {flight && (
+          <p className="route">
+            {flight.departureAirport} → {flight.arrivalAirport}✈️
+          </p>
+        )}
 
         <label>Ticket Type:</label>
         <select
@@ -82,38 +101,21 @@ const Book = ({ bookings, setBookings }) => {
           <option value="First Class">First Class</option>
         </select>
 
-        <label>Quantity:</label>
-
         <label>Adults:</label>
-        <input
-          type="number"
-          name="adults"
-          placeholder="Adults"
-          onChange={handleChange}
-        />
+        <input type="number" name="adults" onChange={handleChange} />
 
         <label>Kids:</label>
-        <input
-          type="number"
-          name="kids"
-          placeholder="Kids"
-          onChange={handleChange}
-        />
+        <input type="number" name="kids" onChange={handleChange} />
 
         <label>Infant:</label>
-        <input
-          type="number"
-          name="infant"
-          placeholder="Infant"
-          onChange={handleChange}
-        />
+        <input type="number" name="infant" onChange={handleChange} />
 
         <button type="submit">Book</button>
 
-        {error && <p>{error}</p>}
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   )
 }
 
-export default Book
+export default Booking
