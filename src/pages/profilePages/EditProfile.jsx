@@ -1,3 +1,4 @@
+import '../../App.css'
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
@@ -56,32 +57,48 @@ const EditProfile = () => {
   }
 
   return (
-    <div>
-      <h2>Edit Profile </h2>
+  <div className="editProfilePage">
 
-      <form onSubmit={handleSubmit}>
+    <div className="profileHeader">
+      <h1>Edit Profile</h1>
+      <p>Update your personal information</p>
+    </div>
+
+    <form onSubmit={handleSubmit} className="editForm">
+
+      <div className="inputGroup">
+        <label>Full Name</label>
         <input
           name="fullName"
           value={formData.fullName}
           onChange={handleChange}
         />
+      </div>
 
+      <div className="inputGroup">
+        <label>Email</label>
         <input
           name="email"
           value={formData.email}
           onChange={handleChange}
         />
+      </div>
 
+      <div className="inputGroup">
+        <label>Phone Number</label>
         <input
           name="phoneNumber"
           value={formData.phoneNumber}
           onChange={handleChange}
         />
+      </div>
 
-        <button type="submit">Save</button>
-      </form>
-    </div>
-  )
+      <button type="submit">Save Changes</button>
+
+    </form>
+
+  </div>
+)
 }
 
 export default EditProfile

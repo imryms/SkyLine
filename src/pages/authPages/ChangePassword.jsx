@@ -48,41 +48,54 @@ const ChangePassword = () => {
   }
 
 return (
-  <div className="changePassword">
-    <form onSubmit={handleSubmit}>
-      <h2>Change Password</h2>
+  <div className="changePasswordPage">
 
-      <input
-        type="password"
-        name="oldPassword"
-        placeholder="Old Password"
-        value={formData.oldPassword}
-        onChange={handleChange}
-        required
-      />
+    <div className="profileHeader">
+      <h1>Change Password</h1>
+      <p>Keep your account secure</p>
+    </div>
 
-      <input
-        type="password"
-        name="newPassword"
-        placeholder="New Password"
-        value={formData.newPassword}
-        onChange={handleChange}
-        required
-      />
+    <form onSubmit={handleSubmit} className="passwordForm">
 
-      <input
-        type="password"
-        name="confirmPassword"
-        placeholder="Confirm Password"
-        value={formData.confirmPassword}
-        onChange={handleChange}
-        required
-      />
+      <div className="inputGroup">
+        <label>Old Password</label>
+        <input
+          type="password"
+          name="oldPassword"
+          value={formData.oldPassword}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="inputGroup">
+        <label>New Password</label>
+        <input
+          type="password"
+          name="newPassword"
+          value={formData.newPassword}
+          onChange={handleChange}
+          required
+        />
+      </div>
+
+      <div className="inputGroup">
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
       <button type="submit">Update Password</button>
 
       {error && <p className="error-message">{error}</p>}
+
     </form>
+
   </div>
 )
 }

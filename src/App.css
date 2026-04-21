@@ -96,3 +96,165 @@ body {
   margin: 0;
 }
 /* Profile */
+.profilePage {
+  min-height: calc(100vh - 60px);
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #eef4ff, #ffffff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profileHeader h1 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.profileHeader p {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.profileContent {
+  width: 100%;
+  max-width: 500px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.row span {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.row p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.actions {
+  margin-top: 35px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.actions button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  background: rgb(29, 29, 71);
+  color: white;
+  transition: 0.2s;
+}
+
+.actions button:hover {
+  background: #1d4ed8;
+}
+
+.lightBtn {
+  background: transparent;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  color: rgb(29, 29, 71);
+}
+
+.lightBtn:hover {
+  background: rgba(37, 99, 235, 0.05);
+}
+.editProfilePage {
+  min-height: calc(100vh - 60px);
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #eef4ff, #ffffff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.profileHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profileHeader h1 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.profileHeader p {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.editForm {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputGroup label {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.editForm input {
+  padding: 11px 13px;
+  background: #f8faff;
+  border: 1px solid rgba(37, 99, 235, 0.13);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #0f172a;
+  outline: none;
+}
+
+.editForm input:focus {
+  border-color: rgb(29, 29, 71);
+  background: white;
+}
+
+.editForm button {
+  margin-top: 10px;
+  padding: 12px;
+  background: rgb(29, 29, 71);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.editForm button:hover {
+  background: #1d4ed8;
+}
