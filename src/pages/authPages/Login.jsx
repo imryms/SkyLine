@@ -11,7 +11,7 @@ const Login = ({ setUser }) => {
 
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
   })
 
   const [error, setError] = useState("")
@@ -19,7 +19,7 @@ const Login = ({ setUser }) => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
   }
 
@@ -27,7 +27,7 @@ const Login = ({ setUser }) => {
     e.preventDefault()
 
     try {
-      const response = await axios.post(`${API_URL}/auth/login`,formData)
+      const response = await axios.post(`${API_URL}/auth/login`, formData)
 
       const token = response.data.token
       localStorage.setItem("token", token)
@@ -36,16 +36,15 @@ const Login = ({ setUser }) => {
       setUser(decoded)
       navigate("/")
     } catch (error) {
-  console.log(error.response?.data)
-  setError(error.response?.data?.msg || "Login failed")
-}
+      console.log(error.response?.data)
+      setError(error.response?.data?.msg || "Login failed")
+    }
   }
 
   return (
     <div className="loginPage">
-
       <form onSubmit={handleSubmit}>
-      <h2>Login </h2>
+        <h2>Login </h2>
         <input
           type="email"
           name="email"
@@ -66,7 +65,8 @@ const Login = ({ setUser }) => {
 
         <button type="submit">Login</button>
         <p className="switch-auth">
-          Don't have an account? <span onClick={()=> navigate("/register")}>Register</span>
+          Don't have an account?{" "}
+          <span onClick={() => navigate("/register")}>Register</span>
         </p>
       </form>
 

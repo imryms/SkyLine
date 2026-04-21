@@ -1,5 +1,5 @@
-import './flights.css'
-import { Link } from 'react-router-dom'
+import "./flights.css"
+import { Link } from "react-router-dom"
 
 const Flights = ({ flights }) => {
   console.log("Flights data in component:", flights)
@@ -23,7 +23,6 @@ const Flights = ({ flights }) => {
       <div className="flightsGrid">
         {flights.map((flight) => (
           <div key={flight._id} className="flightCard">
-
             <div className="cardTop">
               <div className="airline">
                 <img
@@ -57,7 +56,6 @@ const Flights = ({ flights }) => {
             <Link to={`/flights/${flight._id}`} className="detailsBtn">
               View Details
             </Link>
-
           </div>
         ))}
       </div>
