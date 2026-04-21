@@ -7,7 +7,7 @@ const ManageFlights = ({flights, setFlights}) => {
   const handelDelete = async (id) =>{
     if(window .confirm ("Are you sure you want to delete this flight? ")){
       try {
-        await axios.delete(`${API_URL}/flight/${id}`)
+        await axios.delete(`${API_URL}/flights/${id}`)
         const updateFlights = flights.filter(f => f._id !== id)
         setFlights(updateFlights)
       } catch (error) {
@@ -47,7 +47,7 @@ const ManageFlights = ({flights, setFlights}) => {
 
             <Link to={`/edit-flight/${flight._id}`} className="edit-btn">Edit🔧</Link>
             <Link to={`/flights/${flight._id}`} className="details-btn">View Details</Link>
-            <button onClick={()=> handelDelete(airLine._id)} className='delete-btn'>Delete 🗑️</button>
+            <button onClick={()=> handelDelete(flight._id)} className='delete-btn'>Delete 🗑️</button>
           </div>
         ))}
       </div>
