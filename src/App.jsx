@@ -6,7 +6,6 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { jwtDecode } from "jwt-decode"
 
-// Pages
 import Home from "./pages/Home"
 import Flights from "./pages/FlightPages/Flights"
 import FlightDetails from "./pages/FlightPages/FlightDetails"
@@ -22,6 +21,7 @@ import ChangePassword from "./pages/authPages/ChangePassword"
 import ManageFlights from "./pages/adminPages/MangeFlights"
 import ManageAirLines from "./pages/adminPages/ManageAirLines"
 import BookingSuccess from "./pages/BookingPages/BookingSuccess"
+import BookingDetails from "./pages/BookingPages/BookingDetails"
 import EditFlight from "./pages/adminPages/EditFlight"
 import EditAirLine from "./pages/adminPages/EditAirLine"
 
@@ -29,6 +29,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [flights, setFlights] = useState([])
   const [airLines, setAirLines] = useState([])
+  const [bookings, setBookings] = useState([])
 
   useEffect(() => {
     const token = localStorage.getItem("token")
@@ -126,8 +127,20 @@ function App() {
             }
           />
 
-          <Route path="/booking/:id" element={<Booking />} />
+          <Route
+            path="/booking/:id"
+            element={
+              <Booking
+                bookings={bookings}
+                setBookings={setBookings}
+                user={user}
+              />
+            }
+          />
+
           <Route path="/booking-success/:id" element={<BookingSuccess />} />
+          <Route path="/my-bookings" element={<MyBookings user={user} />} />
+          <Route path="/booking-details/:id" element={<BookingDetails />} />
         </Routes>
       </main>
 

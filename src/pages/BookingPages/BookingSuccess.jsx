@@ -79,6 +79,7 @@ const BookingSuccess = () => {
         <button className="back-btn" onClick={() => navigate("/")}>
           Back to Home
         </button>
+        <button onClick={() => navigate("/my-bookings")}>My Bookings</button>
       </div>
     </div>
   )

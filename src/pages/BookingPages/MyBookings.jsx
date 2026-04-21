@@ -31,7 +31,12 @@ const MyBookings = () => {
         bookings.map((b) => (
           <div key={b._id} className="booking-card">
             <p>Type: {b.ticketType}</p>
-
+            {b.flightID && (
+              <p>
+                Route: {b.flightID.departureAirport} →{" "}
+                {b.flightID.arrivalAirport}
+              </p>
+            )}
             <p>
               Passengers:{" "}
               {b.passengers.map((p, i) => (

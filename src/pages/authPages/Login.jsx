@@ -33,7 +33,6 @@ const Login = ({ setUser }) => {
       localStorage.setItem("token", token)
 
       const decoded = jwtDecode(token)
-      localStorage.setItem("userID", decoded.id || decoded._id)
       setUser(decoded)
       navigate("/")
     } catch (error) {

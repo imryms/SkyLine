@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom"
 
 const API_URL = import.meta.env.VITE_API_URL
 
-const Booking = ({ bookings, setBookings }) => {
+const Booking = ({ bookings, setBookings, user }) => {
   const navigate = useNavigate()
   const { id: flightID } = useParams()
 
@@ -60,20 +60,16 @@ const Booking = ({ bookings, setBookings }) => {
       }
 
       const response = await axios.post(`${API_URL}/bookings/create`, {
-        userID: localStorage.getItem("userID"),
+        userID: user.id,
         flightID: flightID,
         ticketType: formState.ticketType,
         passengers,
       })
-      console.log("userID:", localStorage.getItem("userID"))
 
       setBookings([...bookings, response.data])
 
       navigate(`/booking-success/${response.data._id}`)
     } catch (error) {
-      console.log("FULL ERROR:", error)
-      console.log("RESPONSE ERROR:", error.response)
-
       setError(error.response?.data?.error || "Something went wrong")
     }
   }
