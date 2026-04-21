@@ -4,63 +4,65 @@ import { Link } from 'react-router-dom'
 const Flights = ({ flights }) => {
   console.log("Flights data in component:", flights)
 
-  // loading
   if (!flights) {
     return (
-      <div className="loaderCenter">
+      <div className="loading">
         <div className="spinner"></div>
       </div>
     )
   }
 
-  // no data
   if (flights.length === 0) {
-    return <div className='noFlights'>No flights available 🛬</div>
+    return <div className="noFlights">No flights available 🛬</div>
   }
 
-  return (
-    <div className="flightsPage">
+return (
+  <div className="flightsPage">
+    <h2 className="pageTitle">Available Flights ✈️</h2>
 
-      <div className="flightsHeader">
-        <h2>Available Flights ✈️</h2>
-        <p>Choose your flight and view more details</p>
-      </div>
+    <div className="flightsGrid">
+      {flights.map((flight) => (
+        <div key={flight._id} className="flightCard">
 
-      <div className="flightsGrid">
-        {flights.map((flight) => (
-          <div key={flight._id} className="flightCard">
-
-            <div className="flightTop">
-              <h3>{flight.airLineId?.airLineName || "AirLine"}</h3>
-              <span className="flightNum">{flight.flightNum}</span>
-            </div>
-
-            <div className="flightRoute">
-              <div className="routeBox">
-                <p className="label">From</p>
-                <h4>{flight.departureAirport}</h4>
-                <span>{flight.departureTime}</span>
-              </div>
-
-              <div className="routeArrow">→</div>
-
-              <div className="routeBox">
-                <p className="label">To</p>
-                <h4>{flight.arrivalAirport}</h4>
-                <span>{flight.arrivalTime}</span>
+          <div className="cardTop">
+            <div className="airline">
+              <img
+                src={flight.airLineCode?.logoURL }
+                alt={flight.airLineCode?.airLineName}
+                className="airlineLogo"
+              />
+              <div>
+                <h3>{flight.airLineCode?.airLineName }</h3>
+                <p className="flightNumber">{flight.flightNum}</p>
               </div>
             </div>
-
-            <Link to={`/flights/${flight._id}`} className="detailsBtn">
-              View Details
-            </Link>
-
           </div>
-        ))}
-      </div>
 
+          <div className="route">
+            <div className="place">
+              <span>From</span>
+              <h4>{flight.departureAirport}</h4>
+              <p>{flight.departureTime}</p>
+            </div>
+
+            <div className="arrow">→</div>
+
+            <div className="place">
+              <span>To</span>
+              <h4>{flight.arrivalAirport}</h4>
+              <p>{flight.arrivalTime}</p>
+            </div>
+          </div>
+
+          <Link to={`/flights/${flight._id}`} className="detailsBtn">
+            View Details
+          </Link>
+
+        </div>
+      ))}
     </div>
-  )
+  </div>
+)
 }
 
 export default Flights

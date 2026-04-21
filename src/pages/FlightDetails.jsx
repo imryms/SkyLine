@@ -1,3 +1,4 @@
+import './flights.css'
 import { useEffect, useState } from "react"
 import {useParams, Link} from "react-router-dom"
 import axios from "axios"
@@ -22,48 +23,54 @@ const FlightDetails = () => {
     return(
       <div className="loading">Loading Flights Details✈️...</div>)
   }
-  return (
-    <div className="flights-details">
-      <h2>Flight Details ✈️: </h2>
-      <Link to="/flights" className="back-link">←Back to Flights</Link>
+return (
+  <div className="flightDetailsPage">
 
-      <div className="details-card">
-        <div className="details-header">
-          <h1>{flight.airLineCode?.airLinName}</h1>
-          <img src={flight.airLineCode?.logoURL} alt="AirLine Logo" className="airLine-logo-size" />
-        </div>
+    <Link to="/flights" className="backLink">← Back</Link>
 
-        <div className="space-grid">
-          <div className="spec">
-            <p><strong>Flight Number:</strong> {flight.flightNum}</p>
-          </div>
+    <div className="airlineHeader">
+      <img
+        src={flight.airLineCode?.logoURL}
+        alt={flight.airLineCode?.airLineName}
+        className="airlineLogo"
+      />
 
-          <div className="spec">
-            <p><strong>Route:</strong> {flight.departureAirport} → {flight.arrivalAirport}</p>
-          </div>
+      <h2 className="title">
+        {flight.airLineCode?.airLineName }
+        <span>{flight.flightNum}</span>
+      </h2>
+    </div>
 
-          <div className="spec">
-            <p><strong>Date:</strong> {new Date(flight.flightDate).toLocaleDateString()}</p>
-          </div>
+    <div className="routeLine">
+      <div>
+        <p>{flight.departureAirport}</p>
+        <span>{flight.departureTime}</span>
+      </div>
 
-          <div className="spec">
-            <p><strong>Time:</strong> {flight.departureTime} - {flight.arrivalTime}</p>
-          </div>
+      <div className="arrow">→</div>
 
-          <div className="spec">
-            <p><strong>First Class:</strong> {flight.price?.firstClass} BHD</p>
-            <p><strong>Business:</strong> {flight.price?.business} BHD</p>
-            <p><strong>Economy:</strong> {flight.price?.economy} BHD</p>
-          </div>
-
-          <div className="spec">
-            <p><strong>Status:</strong> {flight.isDirect ? "Direct Flight" : "Connecting Flight"}</p>
-          </div>
-        </div>
-
-        <Link to={`/booking/${flight._id}`} className="book-btn">Book This Flight</Link>
+      <div>
+        <p>{flight.arrivalAirport}</p>
+        <span>{flight.arrivalTime}</span>
       </div>
     </div>
-  )
+
+    <div className="infoSection">
+      <p><strong>Date:</strong> {new Date(flight.flightDate).toLocaleDateString()}</p>
+      <p><strong>Type:</strong> {flight.isDirect ? "Direct" : "Connecting"}</p>
+    </div>
+
+    <div className="prices">
+      <p>Economy: {flight.price?.economy} BHD</p>
+      <p>Business: {flight.price?.business} BHD</p>
+      <p>First: {flight.price?.firstClass} BHD</p>
+    </div>
+
+    <Link to={`/booking/${flight._id}`} className="bookBtn">
+      Book Flight
+    </Link>
+
+  </div>
+)
 }
 export default FlightDetails
