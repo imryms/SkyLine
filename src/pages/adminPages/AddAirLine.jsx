@@ -27,11 +27,15 @@ const AirLine =({ airLines , setAirLines }) => {
       if(airLines){
         let airLinesList = [...airLines]
         airLinesList.push(res.data)
-        setAirLines(airLinesList)}
+        setAirLines([...airLines, res.data])}
 
 
       setFormState(initialState)
-      navigate(`/`)
+      alert("AirLine added Successfully! ✅")
+      // navigate('/manage-airLines')
+
+
+
     }catch(error){
       console.error("Error creating AirLine",error)
     }
@@ -72,7 +76,7 @@ const AirLine =({ airLines , setAirLines }) => {
         value={formState.contactNumber}
         autoComplete="off"/>
 
-      <button type="submit">Add AirLine</button>
+      <button type="submit" onClick={()=>navigate('/manage-airLines')}>Add AirLine</button>
       </form>
     </div>
   )

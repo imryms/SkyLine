@@ -43,7 +43,7 @@ const ManageAirLines = ({airLines, setAirLines}) => {
 
             <button onClick={()=> handelDelete(airLine._id)} className='delete-btn'>Delete 🗑️</button>
             </div>
-          </div>
+          </div> 
         ))}
       </div>
     </div>

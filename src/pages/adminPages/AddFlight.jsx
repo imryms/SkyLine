@@ -56,7 +56,7 @@ const Flight =({ flights, setFlights, airLines }) => {
 
 
   setFormState(initialState)
-  navigate(`/`)
+
   }
 
   return(
@@ -170,7 +170,7 @@ const Flight =({ flights, setFlights, airLines }) => {
         value={formState.isDirect}
         autoComplete="off"/>
 
-        <button type="submit">Add Flight</button>
+        <button type="submit" onClick={()=>navigate ('/manage-flights')}>Add Flight</button>
       </form>
     </div>
   )
