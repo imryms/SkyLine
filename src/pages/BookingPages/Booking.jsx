@@ -19,7 +19,6 @@ const Booking = ({ bookings, setBookings }) => {
 
   const [error, setError] = useState("")
 
-  // ✈️ جلب بيانات الرحلة
   useEffect(() => {
     const getFlight = async () => {
       try {
@@ -66,10 +65,10 @@ const Booking = ({ bookings, setBookings }) => {
         ticketType: formState.ticketType,
         passengers,
       })
+      console.log("userID:", localStorage.getItem("userID"))
 
       setBookings([...bookings, response.data])
 
-      // ✔️ مهم: response.data مباشرة
       navigate(`/booking-success/${response.data._id}`)
     } catch (error) {
       console.log("FULL ERROR:", error)
