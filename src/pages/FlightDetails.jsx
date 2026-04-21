@@ -51,7 +51,9 @@ const FlightDetails = () => {
           </div>
 
           <div className="spec">
-            <p><strong>Price:</strong> {flight.price} BHD</p>
+            <p><strong>First Class:</strong> {flight.price?.firstClass} BHD</p>
+            <p><strong>Business:</strong> {flight.price?.business} BHD</p>
+            <p><strong>Economy:</strong> {flight.price?.economy} BHD</p>
           </div>
 
           <div className="spec">
