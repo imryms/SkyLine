@@ -1,3 +1,4 @@
+import '../../App.css'
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
@@ -29,23 +30,40 @@ const Profile = () => {
     getProfile()
   }, [navigate])
   if (!user) return <h2 className="Loading">Loading</h2>
-  return (
-    <div className="profile">
+return (
+  <div className="profilePage">
+    <div className="profileBox">
       <h2>My Profile</h2>
-      <p><strong>Name:</strong>  {user.fullName}</p>
-      <p><strong>Email:</strong>  {user.email}</p>
-      <p><strong>Phone:</strong>  {user.phoneNumber}</p>
 
-    <Link to="/edit-profile">
-    <button>Edit Profile</button>
-    </Link>
-    <Link to="/change-password">
-    <button>Change Password</button>
-    </Link>
+      <div className="info">
+        <div className="row">
+          <span>Name</span>
+          <p>{user.fullName}</p>
+        </div>
+
+        <div className="row">
+          <span>Email</span>
+          <p>{user.email}</p>
+        </div>
+
+        <div className="row">
+          <span>Phone</span>
+          <p>{user.phoneNumber}</p>
+        </div>
+      </div>
+
+      <div className="actions">
+        <Link to="/edit-profile">
+          <button>Edit Profile</button>
+        </Link>
+
+        <Link to="/change-password">
+          <button className="lightBtn">Change Password</button>
+        </Link>
+      </div>
     </div>
-
-
-  )
+  </div>
+)
 }
 export default Profile
 

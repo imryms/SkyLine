@@ -105,3 +105,85 @@
   margin-top: 10px;
   text-align: center;
 }
+
+.changePassword {
+  min-height: calc(100vh - 60px);
+  overflow: hidden;
+  background: #eef4ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.changePassword form {
+  background: white;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  border-radius: 16px;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  position: relative;
+}
+
+.changePassword form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  background: rgb(29, 29, 71);
+  border-radius: 0 0 4px 4px;
+}
+
+.changePassword form h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: center;
+}
+
+.changePassword form input {
+  width: 100%;
+  padding: 10px 13px;
+  background: #f8faff;
+  border: 1px solid rgba(37, 99, 235, 0.13);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #0f172a;
+  outline: none;
+}
+
+.changePassword form input:focus {
+  border-color: rgb(29, 29, 71);
+  background: white;
+}
+
+.changePassword form input::placeholder {
+  color: #c0cedf;
+  font-size: 12px;
+}
+
+.changePassword form button {
+  width: 100%;
+  padding: 12px;
+  background: rgb(29, 29, 71);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.changePassword form button:hover {
+  background: #1d4ed8;
+}
+
+

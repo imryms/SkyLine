@@ -47,44 +47,44 @@ const ChangePassword = () => {
     }
   }
 
-  return (
-    <div>
-      <h2>Change Password </h2>
+return (
+  <div className="changePassword">
+    <form onSubmit={handleSubmit}>
+      <h2>Change Password</h2>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="password"
-          name="oldPassword"
-          placeholder="Old Password"
-          value={formData.oldPassword}
-          onChange={handleChange}
-          required
-        />
+      <input
+        type="password"
+        name="oldPassword"
+        placeholder="Old Password"
+        value={formData.oldPassword}
+        onChange={handleChange}
+        required
+      />
 
-        <input
-          type="password"
-          name="newPassword"
-          placeholder="New Password"
-          value={formData.newPassword}
-          onChange={handleChange}
-          required
-        />
+      <input
+        type="password"
+        name="newPassword"
+        placeholder="New Password"
+        value={formData.newPassword}
+        onChange={handleChange}
+        required
+      />
 
-        <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={formData.confirmPassword}
-          onChange={handleChange}
-          required
-        />
+      <input
+        type="password"
+        name="confirmPassword"
+        placeholder="Confirm Password"
+        value={formData.confirmPassword}
+        onChange={handleChange}
+        required
+      />
 
-        <button type="submit">Update Password</button>
-      </form>
+      <button type="submit">Update Password</button>
 
-      {error && <p>{error}</p>}
-    </div>
-  )
+      {error && <p className="error-message">{error}</p>}
+    </form>
+  </div>
+)
 }
 
 export default ChangePassword
