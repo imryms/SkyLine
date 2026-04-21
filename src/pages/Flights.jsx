@@ -31,7 +31,9 @@ const Flights = ({flights}) => {
             </div>
 
             <div className='flight-footer'>
-              <p className='price'>Price: {flight.price} BHD</p>
+              <p>Economy: {flight.price.economy} BHD</p>
+              <p>Business: {flight.price.business} BHD</p>
+              <p>First Class: {flight.price.firstClass} BHD</p>
             </div>
 
             <Link to={`/flights/${flight._id}`} className="details-btn">View Details</Link>
