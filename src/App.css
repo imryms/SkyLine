@@ -37,6 +37,8 @@ body {
   align-items: center;
   padding: 18px 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border-bottom: 3px solid #72e7e7;
+
 }
 
 .logo {
@@ -93,3 +95,4 @@ body {
   color: white;
   margin: 0;
 }
+/* Profile */

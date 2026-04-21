@@ -1,3 +1,4 @@
+import "./auth.css"
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
@@ -42,9 +43,9 @@ const Login = ({ setUser }) => {
 
   return (
     <div className="loginPage">
-      <h2>Login </h2>
 
       <form onSubmit={handleSubmit}>
+      <h2>Login </h2>
         <input
           type="email"
           name="email"
@@ -64,9 +65,12 @@ const Login = ({ setUser }) => {
         />
 
         <button type="submit">Login</button>
+        <p className="switch-auth">
+          Don't have an account? <span onClick={()=> navigate("/register")}>Register</span>
+        </p>
       </form>
 
-      {error && <p>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
     </div>
   )
 }

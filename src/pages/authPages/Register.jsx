@@ -1,3 +1,4 @@
+import "./auth.css"
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
@@ -41,16 +42,16 @@ const Register = ({ setUser }) => {
       navigate("/")
 
     } catch (error) {
-  console.log(error.response?.data) 
+  console.log(error.response?.data)
   setError(error.response?.data?.msg || "Something went wrong")
 }
   }
 
   return (
     <div className="register-page">
-      <h2>Register </h2>
 
       <form onSubmit={handleSubmit}>
+      <h2>Create an Account </h2>
         <input
           type="text"
           name="fullName"
@@ -97,9 +98,12 @@ const Register = ({ setUser }) => {
         />
 
         <button type="submit">Register</button>
+        <p className="switch-auth">
+          Already have an account? <span onClick={()=> navigate("/login")}>Login</span>
+        </p>
       </form>
 
-      {error && <p>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
     </div>
   )
 }
