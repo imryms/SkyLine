@@ -20,15 +20,15 @@ import EditProfile from "./pages/profilePages/EditProfile"
 import ChangePassword from "./pages/authPages/ChangePassword"
 
 import { Navigate } from "react-router-dom"
+import ManageFlights from "./pages/adminPages/MangeFlights"
+import ManageAirLines from "./pages/adminPages/ManageAirLines"
 
 function App() {
   const [user, setUser] = useState(null)
 
   const [flights, setFlights] = useState([])
 
-  const [flight, setFlight] = useState([])
-
-  const [airLins, setAirLines] = useState([])
+  const [airLines, setAirLines] = useState([])
 
   useEffect(() => {
     const token = localStorage.getItem("token")
@@ -53,6 +53,16 @@ function App() {
       }
     }
     fetchFlight()
+
+    const fetchAirLines = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/airLines`)
+        setAirLines(res.data)
+      } catch (error) {
+        console.error("Error fetching airLines:", error)
+      }
+    }
+    fetchAirLines()
   }, [])
   const handleLogout = () => {
     localStorage.removeItem("token")
@@ -76,13 +86,25 @@ function App() {
           <Route path="/flights" element={<Flights flights={flights} />} />
           <Route path="/flights/:id" element={<FlightDetails />} />
           <Route
+            path="/manage-flights"
+            element={
+              <ManageFlights flights={flights} setFlights={setFlights} />
+            }
+          />
+          <Route
             path="/add-flight"
             element={<FlightForm flights={flights} setFlights={setFlights} />}
           />
           <Route
-            path="/add-airLin"
+            path="/manage-airLines"
             element={
-              <AirLineForm airLines={airLins} setFlights={setAirLines} />
+              <ManageAirLines airLines={airLines} setAirLines={setAirLines} />
+            }
+          />
+          <Route
+            path="/add-airLine"
+            element={
+              <AirLineForm airLines={airLines} setFlights={setAirLines} />
             }
           />
           <Route path="/booking/:id" element={<Booking />} />
