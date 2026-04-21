@@ -7,7 +7,7 @@ const ManageAirLines = ({airLines, setAirLines}) => {
   const handelDelete = async (id) =>{
     if(window .confirm ("Are you sure you want to delete this airLine? ")){
       try {
-        await axios.delete(`${API_URL}/airLine/${id}`)
+        await axios.delete(`${API_URL}/airLines/${id}`)
         const updateAirLines = airLines.filter(airline => airline._id !== id)
         setAirLines(updateAirLines)
       } catch (error) {

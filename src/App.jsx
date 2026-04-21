@@ -19,10 +19,18 @@ import Profile from "./pages/profilePages/Profile"
 import EditProfile from "./pages/profilePages/EditProfile"
 import ChangePassword from "./pages/authPages/ChangePassword"
 
+<<<<<<< HEAD
 import { Navigate } from "react-router-dom"
 import ManageFlights from "./pages/adminPages/MangeFlights"
 import ManageAirLines from "./pages/adminPages/ManageAirLines"
 import BookingSuccess from "./pages/BookingPages/BookingSuccess"
+=======
+import { Navigate } from 'react-router-dom'
+import ManageFlights from './pages/adminPages/MangeFlights'
+import ManageAirLines from './pages/adminPages/ManageAirLines'
+import EditFlight from './pages/adminPages/EditFlight'
+import EditAirLine from './pages/adminPages/EditAirLine'
+>>>>>>> c51d1e8f64082080c48559866b1b59bc0768f475
 
 function App() {
   const [user, setUser] = useState(null)
@@ -74,6 +82,7 @@ function App() {
     <div className="app">
       <Navbar user={user} handleLogout={handleLogout} />
       <main className="content">
+<<<<<<< HEAD
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
@@ -111,6 +120,27 @@ function App() {
           <Route path="/booking/:id" element={<Booking />} />
           <Route path="/booking-success/:id" element={<BookingSuccess />} />
         </Routes>
+=======
+
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/register" element={<Register setUser={setUser} />} />
+        <Route path="/profile" element={user ? <Profile /> : <Home />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/change-password" element={user? <ChangePassword/> : <Navigate to="/" />} />
+        <Route path="/flights" element={<Flights flights={flights}/>} />
+        <Route path="/flights/:id" element={<FlightDetails />} />
+        <Route path="/manage-flights" element={<ManageFlights  flights={flights}  setFlights={setFlights}/>} />
+        <Route path="/add-flight" element={<FlightForm flights={flights} setFlights={setFlights} airLines={airLines}/>} />
+        <Route path="/edit-flight/:id" element={<EditFlight flights={flights} setFlights={setFlights} />} />
+        <Route path="/manage-airLines" element={<ManageAirLines  airLines={airLines}  setAirLines={setAirLines}/>} />
+        <Route path="/add-airLine" element={<AirLineForm airLines={airLines} setFlights={setAirLines}/>} />
+        <Route path="/edit-airLines/:id" element={<EditAirLine airLines={airLines} setAirLines={setAirLines} />} />
+        <Route path="/booking/:id" element={<Booking />} />
+      </Routes>
+>>>>>>> c51d1e8f64082080c48559866b1b59bc0768f475
       </main>
 
       <Footer />

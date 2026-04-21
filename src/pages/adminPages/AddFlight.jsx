@@ -2,7 +2,7 @@ import { useState } from "react"
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
 
-const Flight =({ flights, setFlights }) => {
+const Flight =({ flights, setFlights, airLines }) => {
   const navigate = useNavigate()
   const API_URL = import.meta.env.VITE_API_URL
 
@@ -54,13 +54,15 @@ const Flight =({ flights, setFlights }) => {
         value={formState.flightNum}
         autoComplete="off"/>
 
-        <label>AirLine ID:</label>
-        <input
-        type="text"
-        name="airLineId"
+        <label>AirLine Code:</label>
+        <select
+        name="airLineCode"
         onChange={handleChange}
-        value={formState.airLineId}
-        autoComplete="off"/>
+        value={formState.airLineCode}>
+          <option value="">SelectAirLine</option>
+          {airLines.map((airLine)=>(<option key={airLine._id} value={airLine._id}>{airLine.airLineCode}-{airLine.airLineName}</option>))}
+        </select>
+
 
         <label>Departure Airport:</label>
         <input
