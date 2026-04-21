@@ -49,9 +49,28 @@ return (
 
       <div className="arrow">→</div>
 
+<<<<<<< HEAD
       <div>
         <p>{flight.arrivalAirport}</p>
         <span>{flight.arrivalTime}</span>
+=======
+          <div className="spec">
+            <p><strong>Duration:</strong> {flight.duration}</p>
+          </div>
+
+          <div className="spec">
+            <p><strong>First Class:</strong> {flight.price?.firstClass} BHD</p>
+            <p><strong>Business:</strong> {flight.price?.business} BHD</p>
+            <p><strong>Economy:</strong> {flight.price?.economy} BHD</p>
+          </div>
+
+          <div className="spec">
+            <p><strong>Status:</strong> {flight.isDirect ? "Direct Flight" : "Connecting Flight"}</p>
+          </div>
+        </div>
+
+        <Link to={`/booking/${flight._id}`} className="book-btn">Book This Flight</Link>
+>>>>>>> 957e01dce5133f0c433a2c97a6d685db6be41318
       </div>
     </div>
 
