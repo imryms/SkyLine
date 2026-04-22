@@ -5,7 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { jwtDecode } from "jwt-decode"
-
+import { useNavigate } from "react-router-dom"
 import Home from "./pages/Home"
 import Login from "./pages/authPages/Login"
 import Register from "./pages/authPages/Register"
@@ -31,6 +31,7 @@ function App() {
   const [flights, setFlights] = useState([])
   const [airLines, setAirLines] = useState([])
   const [bookings, setBookings] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     const token = localStorage.getItem("token")
@@ -62,6 +63,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("token")
     setUser(null)
+    navigate("/")
   }
 
   return (
