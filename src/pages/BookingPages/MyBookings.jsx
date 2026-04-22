@@ -2,6 +2,7 @@ import "./Bookings.css"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import { jwtDecode } from "jwt-decode"
 
 const API_URL = import.meta.env.VITE_API_URL
 
@@ -12,10 +13,32 @@ const MyBookings = () => {
   useEffect(() => {
     const getBookings = async () => {
       try {
-        const response = await axios.get(`${API_URL}/bookings`)
+        const token = localStorage.getItem("token")
+
+        if (!token) {
+          navigate("/login")
+          return
+        }
+
+        const decoded = jwtDecode(token)
+        const userID = decoded.id
+
+        const response = await axios.get(
+          `${API_URL}/bookings?userID=${userID}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+
         setBookings(response.data)
       } catch (error) {
         console.log(error)
+        if (error.response?.status === 401) {
+          localStorage.removeItem("token")
+          navigate("/login")
+        }
       }
     }
 
