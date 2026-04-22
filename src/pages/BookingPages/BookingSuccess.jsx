@@ -1,3 +1,4 @@
+import "./Bookings.css"
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import axios from "axios"
@@ -17,7 +18,6 @@ const BookingSuccess = () => {
         const response = await axios.get(`${API_URL}/bookings/${id}`)
         setBooking(response.data)
       } catch (err) {
-        console.log(err.response?.data)
         setError("No Booking Found")
       }
     }
@@ -27,13 +27,13 @@ const BookingSuccess = () => {
 
   if (!booking) {
     return (
-      <div className="no-booking">
+      <div className="noBookingPage">
         <h2>{error || "Loading..."}</h2>
         <p>
           It looks like you haven’t made any booking yet. Start now and enjoy
           your experience.
         </p>
-        <button className="Btn" onClick={() => navigate("/")}>
+        <button className="primaryBtn" onClick={() => navigate("/")}>
           Book Now
         </button>
       </div>
@@ -41,12 +41,12 @@ const BookingSuccess = () => {
   }
 
   return (
-    <div className="success">
-      <div className="success-card">
-        <h1>Thank You for Your Booking! ✈️</h1>
+    <div className="bookingPage">
+      <div className="successCard">
+        <h1 className="successTitle">Thank You for Your Booking ✈️</h1>
 
-        <div className="booking-details">
-          <div className="row">
+        <div className="detailsBox">
+          <div className="detailRow">
             <span>Flight</span>
             <p>
               {booking.flightID?.departureAirport} →{" "}
@@ -54,14 +54,14 @@ const BookingSuccess = () => {
             </p>
           </div>
 
-          <div className="row">
+          <div className="detailRow">
             <span>Ticket Type</span>
             <p className="tag">{booking.ticketType}</p>
           </div>
 
-          <div className="row">
+          <div className="detailRow">
             <span>Passengers</span>
-            <div>
+            <div className="passengersList">
               {booking.passengers.map((p, i) => (
                 <p key={i}>
                   {p.type}: {p.quantity}
@@ -70,16 +70,24 @@ const BookingSuccess = () => {
             </div>
           </div>
 
-          <div className="row total">
+          <div className="detailRow total">
             <span>Total Price</span>
             <p>{booking.totalPrice} BHD</p>
           </div>
         </div>
 
-        <button className="back-btn" onClick={() => navigate("/")}>
-          Back to Home
-        </button>
-        <button onClick={() => navigate("/my-bookings")}>My Bookings</button>
+        <div className="actions">
+          <button className="primaryBtn" onClick={() => navigate("/")}>
+            Back to Home
+          </button>
+
+          <button
+            className="secondaryBtn"
+            onClick={() => navigate("/my-bookings")}
+          >
+            My Bookings
+          </button>
+        </div>
       </div>
     </div>
   )

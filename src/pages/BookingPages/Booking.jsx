@@ -1,3 +1,4 @@
+import "./bookings.css"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate, useParams } from "react-router-dom"
@@ -25,7 +26,7 @@ const Booking = ({ bookings, setBookings, user }) => {
         const res = await axios.get(`${API_URL}/flights/${flightID}`)
         setFlight(res.data)
       } catch (err) {
-        console.log("Error loading flight:", err)
+        console.log(err)
       }
     }
 
@@ -42,73 +43,100 @@ const Booking = ({ bookings, setBookings, user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    const passengers = [
+      { type: "Adults", quantity: Number(formState.adults) },
+      { type: "Kids", quantity: Number(formState.kids) },
+      { type: "Infant", quantity: Number(formState.infant) },
+    ].filter((p) => p.quantity > 0)
+
+    if (passengers.length === 0) {
+      setError("Add at least one passenger")
+      return
+    }
+
+    if (!formState.ticketType) {
+      setError("Select ticket type")
+      return
+    }
+
     try {
-      const passengers = [
-        { type: "Adults", quantity: Number(formState.adults) },
-        { type: "Kids", quantity: Number(formState.kids) },
-        { type: "Infant", quantity: Number(formState.infant) },
-      ].filter((p) => p.quantity > 0)
-
-      if (passengers.length === 0) {
-        setError("Add at least one passenger")
-        return
-      }
-
-      if (!formState.ticketType) {
-        setError("Select ticket type")
-        return
-      }
-
       const response = await axios.post(`${API_URL}/bookings/create`, {
         userID: user.id,
-        flightID: flightID,
+        flightID,
         ticketType: formState.ticketType,
         passengers,
       })
 
       setBookings([...bookings, response.data])
-
       navigate(`/booking-success/${response.data._id}`)
     } catch (error) {
       setError(error.response?.data?.error || "Something went wrong")
     }
   }
 
+  if (!flight) {
+    return (
+      <div className="bookingLoading">
+        <div className="spinner"></div>
+      </div>
+    )
+  }
+
   return (
-    <div className="booking">
-      <form onSubmit={handleSubmit}>
-        <h2>Book Flight ✈️</h2>
-        {flight && (
-          <p className="route">
-            {flight.departureAirport} → {flight.arrivalAirport}✈️
+    <div className="bookingPage">
+      <div className="bookingCards">
+        <h2 className="bookingTitle">Book Flight ✈️</h2>
+
+        <div className="flightInfo">
+          <p>
+            {flight.departureAirport} → {flight.arrivalAirport}
           </p>
-        )}
+          <span>
+            {flight.departureTime} - {flight.arrivalTime}
+          </span>
+        </div>
 
-        <label>Ticket Type:</label>
-        <select
-          name="ticketType"
-          value={formState.ticketType}
-          onChange={handleChange}
-        >
-          <option value="">Select Ticket Type</option>
-          <option value="Economy">Economy</option>
-          <option value="Business">Business</option>
-          <option value="First Class">First Class</option>
-        </select>
+        <form onSubmit={handleSubmit} className="bookingForm">
+          <div className="formGrid">
+            <div className="formFull">
+              <label>Ticket Type</label>
+              <select
+                name="ticketType"
+                value={formState.ticketType}
+                onChange={handleChange}
+              >
+                <option value="">Select Ticket Type</option>
+                <option value="Economy">Economy</option>
+                <option value="Business">Business</option>
+                <option value="First Class">First Class</option>
+              </select>
+            </div>
 
-        <label>Adults:</label>
-        <input type="number" name="adults" onChange={handleChange} />
+            <div>
+              <label>Adults</label>
+              <input type="number" name="adults" onChange={handleChange} />
+            </div>
 
-        <label>Kids:</label>
-        <input type="number" name="kids" onChange={handleChange} />
+            <div>
+              <label>Kids</label>
+              <input type="number" name="kids" onChange={handleChange} />
+            </div>
 
-        <label>Infant:</label>
-        <input type="number" name="infant" onChange={handleChange} />
+            <div>
+              <label>Infant</label>
+              <input type="number" name="infant" onChange={handleChange} />
+            </div>
 
-        <button type="submit">Book</button>
+            <div className="formFull">
+              <button type="submit" className="bookBtn">
+                Confirm Booking
+              </button>
+            </div>
+          </div>
 
-        {error && <p className="error">{error}</p>}
-      </form>
+          {error && <p className="error">{error}</p>}
+        </form>
+      </div>
     </div>
   )
 }
