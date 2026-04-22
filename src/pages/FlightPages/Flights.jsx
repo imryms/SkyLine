@@ -37,7 +37,7 @@ const Flights = ({ flights }) => {
               </div>
             </div>
 
-            <div className="route">
+            <div className="routeFlights">
               <div className="place">
                 <span>From</span>
                 <h4>{flight.departureAirport}</h4>

@@ -76,7 +76,7 @@ const BookingSuccess = () => {
           </div>
         </div>
 
-        <div className="actions">
+        <div className="actionsBook">
           <button className="primaryBtn" onClick={() => navigate("/")}>
             Back to Home
           </button>

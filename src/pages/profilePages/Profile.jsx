@@ -57,14 +57,10 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="actions">
-        <Link to="/edit-profile">
-          <button>Edit Profile</button>
-        </Link>
 
-        <Link to="/change-password">
-          <button className="lightBtn">Change Password</button>
-        </Link>
+      <div className="actionsProfile">
+        <Link to="/edit-profile" className="actionBtn">Edit Profile</Link>
+        <Link to="/change-password" className="actionBtn lightBtn">Change Password</Link>
       </div>
 
     </div>

@@ -20,7 +20,7 @@ const ManageAirLines = ({airLines, setAirLines}) => {
 
   return (
     <div className="airLinesPage">
-      <div className='airLine-header'>
+      <div className='airLineHeader'>
       <h2 className='pageTitle'>Manage AirLine ⚙️</h2>
       <Link to="/add-airLine" className="add-btn">+ Add New AirLine</Link>
       </div>
@@ -39,7 +39,7 @@ const ManageAirLines = ({airLines, setAirLines}) => {
               <p><strong>Code:</strong> {airLine.airLineCode}</p>
             </div>
 
-            <div className='actions'>
+            <div className='airLineActions'>
             <Link to={`/edit-airLines/${airLine._id}`} className="edit-btn">Edit🔧</Link>
 
             <button onClick={()=> handelDelete(airLine._id)} className='delete-btn'>Delete 🗑️</button>

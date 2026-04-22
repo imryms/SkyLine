@@ -185,7 +185,7 @@
   font-weight: 600;
 }
 
-.actions {
+.actionsBook {
   display: flex;
   flex-direction: column;
   gap: 10px;
