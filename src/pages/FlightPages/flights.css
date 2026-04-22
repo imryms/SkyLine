@@ -86,7 +86,7 @@
   color: #4b5563;
 }
 
-.arrow {
+.arrow  {
   font-size: 20px;
   color: #6b7280;
 }
@@ -217,7 +217,10 @@
 }
 
 .add-btn{
-  display: block;
+  position:fixed;
+  bottom: 40px;
+  right: 20px;
+  z-index: 1000;
   text-align: center;
   padding: 10px;
   background: rgb(29, 29, 71);
@@ -226,6 +229,11 @@
   text-decoration: none;
   font-size: 14px;
   width: 150px;
+  border: solid white 2px;
+}
+
+.add-btn:hover {
+  background: #1d4ed8;
 }
 
 .details-btn {
@@ -239,6 +247,7 @@
   font-size: 14px;
   width: 120px;
   margin: 5px;
+
 }
 
 .details-btn:hover {
@@ -277,5 +286,17 @@
   gap: 20px;
   margin-top:25px ;
 }
+
+.departure, .arrival{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flight-header{
+  margin-bottom: 40px;
+}
+
+.flight-num{color: #6b7280;}
 
 

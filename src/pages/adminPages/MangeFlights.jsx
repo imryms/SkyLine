@@ -30,11 +30,14 @@ const ManageFlights = ({ flights, setFlights }) => {
               <h3>{flight.airLineCode?.airLineName || "AirLine"}</h3>
               <span className="flight-num">{flight.flightNum}</span>
             </div>
-            <div className="flight-info">
+
+            <div className="routeLine">
               <div className="departure">
                 <p className="city">{flight.departureAirport}</p>
                 <p className="time">{flight.departureTime}</p>
               </div>
+
+              <div className="arrow">→</div>
 
               <div className="arrival">
                 <p className="city">{flight.arrivalAirport}</p>
@@ -43,10 +46,10 @@ const ManageFlights = ({ flights, setFlights }) => {
             </div>
 
             <div className="flight-footer">
-              <p className="price">Economy: {flight.price?.economy} BHD</p>
-              <p className="price">Business: {flight.price?.business} BHD</p>
-              <p className="price">
-                First Class: {flight.price?.firstClass} BHD
+              <p className="price"><strong>Economy:</strong> {flight.price?.economy} BHD</p>
+              <p className="price"><strong>Business:</strong> {flight.price?.business} BHD</p>
+              <p className="price"><strong>
+                First Class:</strong> {flight.price?.firstClass} BHD
               </p>
             </div>
 
