@@ -1,3 +1,4 @@
+import './airline.css'
 import { useState } from "react"
 import {useNavigate} from "react-router-dom"
 import axios from "axios"
@@ -41,9 +42,16 @@ const AirLine =({ airLines , setAirLines }) => {
     }
   }
   return(
-    <div className="AirLins">
-      <form className="AirLines-form" onSubmit={handleSubmit}>
+    <div className="addAirLinePage">
 
+    <div className="airLineHeader">
+      <h1>Add AirLine </h1>
+      <p>Add AirLine information</p>
+    </div>
+
+      <form className="addForm" onSubmit={handleSubmit}>
+
+        <div className='inputGroup'>
         <label>airLine Name: </label>
         <input
         type="text"
@@ -51,7 +59,9 @@ const AirLine =({ airLines , setAirLines }) => {
         onChange={handleChange}
         value={formState.airLineName}
         autoComplete="off"/>
+        </div>
 
+        <div className='inputGroup'>
         <label>airLine Code: </label>
         <input
         type="text"
@@ -59,7 +69,9 @@ const AirLine =({ airLines , setAirLines }) => {
         onChange={handleChange}
         value={formState.airLineCode}
         autoComplete="off"/>
+        </div>
 
+        <div className='inputGroup'>
         <label>logo URL: </label>
         <input
         type="text"
@@ -67,7 +79,9 @@ const AirLine =({ airLines , setAirLines }) => {
         onChange={handleChange}
         value={formState.logoURL}
         autoComplete="off"/>
+        </div>
 
+        <div className='inputGroup'>
         <label>contact Number: </label>
         <input
         type="number"
@@ -75,6 +89,7 @@ const AirLine =({ airLines , setAirLines }) => {
         onChange={handleChange}
         value={formState.contactNumber}
         autoComplete="off"/>
+        </div>
 
       <button type="submit" onClick={()=>navigate('/manage-airLines')}>Add AirLine</button>
       </form>

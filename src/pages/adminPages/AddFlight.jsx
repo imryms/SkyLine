@@ -1,3 +1,4 @@
+import '../FlightPages/flights.css'
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
@@ -57,10 +58,14 @@ const Flight = ({ flights, setFlights, airLines }) => {
   }
 
   return (
-    <div className="Flights">
-      <form className="Flights-form" onSubmit={handleSubmit}>
-        <h1>Create New Flight ✈️</h1>
+    <div className="editFlightPage">
+      <form className="createFlights-form" onSubmit={handleSubmit}>
+        <div className="flightHeader">
+      <h1>Create New Flight </h1>
+      <p>Add Flight information</p>
+    </div>
 
+        <div  className='inputGroup'>
         <label>Flight Number:</label>
         <input
           type="text"
@@ -68,8 +73,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
           onChange={handleChange}
           value={formState.flightNum}
           autoComplete="off"
-        />
+        /></div>
 
+        <div className='inputGroup'>
         <label>AirLine Code:</label>
         <select
           name="airLineCode"
@@ -82,8 +88,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
               {airLine.airLineCode}-{airLine.airLineName}
             </option>
           ))}
-        </select>
+        </select></div>
 
+        <div className='inputGroup'>
         <label>Departure Airport:</label>
         <input
           type="text"
@@ -92,7 +99,8 @@ const Flight = ({ flights, setFlights, airLines }) => {
           value={formState.departureAirport}
           autoComplete="off"
         />
-
+        </div>
+        <div className='inputGroup'>
         <label>Arrival Airport:</label>
         <input
           type="text"
@@ -100,8 +108,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
           onChange={handleChange}
           value={formState.arrivalAirport}
           autoComplete="off"
-        />
+        /></div>
 
+        <div className='inputGroup'>
         <label>Fight Date:</label>
         <input
           type="date"
@@ -109,8 +118,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
           onChange={handleChange}
           value={formState.flightDate}
           autoComplete="off"
-        />
+        /></div>
 
+        <div className='inputGroup'>
         <label>Departure Time:</label>
         <input
           type="time"
@@ -118,8 +128,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
           onChange={handleChange}
           value={formState.departureTime}
           autoComplete="off"
-        />
+        /></div>
 
+        <div className='inputGroup'>
         <label>Arrival Time</label>
         <input
           type="time"
@@ -127,8 +138,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
           onChange={handleChange}
           value={formState.arrivalTime}
           autoComplete="off"
-        />
+        /></div>
 
+        <div className='inputGroup'>
         <label>First Class Price</label>
         <input
           type="number"
@@ -136,8 +148,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
           onChange={handleChange}
           value={formState.price.firstClass}
           autoComplete="off"
-        />
+        /></div>
 
+        <div className='inputGroup'>
         <label>Business Class Price</label>
         <input
           type="number"
@@ -145,8 +158,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
           onChange={handleChange}
           value={formState.price.business}
           autoComplete="off"
-        />
+        /></div>
 
+        <div className='inputGroup'>
         <label>Economy Price</label>
         <input
           type="number"
@@ -154,8 +168,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
           onChange={handleChange}
           value={formState.price.economy}
           autoComplete="off"
-        />
+        /></div>
 
+        <div className='inputGroup'>
         <label>Available Seats:</label>
         <input
           type="number"
@@ -163,8 +178,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
           onChange={handleChange}
           value={formState.availableSeats}
           autoComplete="off"
-        />
+        /></div>
 
+        <div className='inputGroup'>
         <label>Duration:</label>
         <input
           type="text"
@@ -172,9 +188,9 @@ const Flight = ({ flights, setFlights, airLines }) => {
           onChange={handleChange}
           value={formState.duration}
           autoComplete="off"
-        />
+        /></div>
 
-        <label>Direct</label>
+        <div className='checkGroup '>
         <input
           type="checkbox"
           name="isDirect"
@@ -182,8 +198,10 @@ const Flight = ({ flights, setFlights, airLines }) => {
           value={formState.isDirect}
           autoComplete="off"
         />
+        <label>Direct</label>
+        </div>
 
-        <button type="submit" onClick={() => navigate("/manage-flights")}>
+        <button type="submit" className='add-btn-createPage' onClick={() => navigate("/manage-flights")}>
           Add Flight
         </button>
       </form>

@@ -1,4 +1,4 @@
-.editAirlinePage {
+.editAirlinePage, .addAirLinePage {
   min-height: calc(100vh - 60px);
   padding: 60px 20px;
   background: linear-gradient(180deg, #eef4ff, #ffffff);
@@ -7,23 +7,25 @@
   align-items: center;
 }
 
-.profileHeader {
+
+
+.profileHeader, .airLineHeader{
   text-align: center;
   margin-bottom: 30px;
 }
 
-.profileHeader h1 {
+.profileHeader h1 , .airLineHeader h1{
   font-size: 1.8rem;
   color: #0f172a;
   margin-bottom: 6px;
 }
 
-.profileHeader p {
+.profileHeader p , .airLineHeader p{
   font-size: 13px;
   color: #94a3b8;
 }
 
-.editForm {
+.editForm  ,.addForm {
   width: 100%;
   max-width: 500px;
   display: flex;
@@ -62,7 +64,7 @@
   gap: 12px;
 }
 
-.editForm button {
+.editForm button, .addForm button {
   margin-top: 10px;
   padding: 12px;
   background: rgb(29, 29, 71);
@@ -83,7 +85,8 @@ img, .airLine-logo{
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 1px solid #e5e7ebb5;
+  border: 1px solid #e5e7ebcc;
+  margin-bottom: 30px;
 }
 
 .pageTitle {

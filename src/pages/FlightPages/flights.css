@@ -232,6 +232,7 @@
   border: solid white 2px;
 }
 
+
 .add-btn:hover {
   background: #1d4ed8;
 }
@@ -308,18 +309,18 @@
 
 .flight-num{color: #6b7280;}
 
-.profileHeader {
+.profileHeader, .flightHeader {
   text-align: center;
   margin-bottom: 30px;
 }
 
-.profileHeader h1 {
+.profileHeader h1, .flightHeader h1 {
   font-size: 1.8rem;
   color: #0f172a;
   margin-bottom: 6px;
 }
 
-.profileHeader p {
+.profileHeader p, .flightHeader p {
   font-size: 13px;
   color: #94a3b8;
 }
@@ -332,6 +333,13 @@
   gap: 16px;
 }
 
+.createFlights-form{
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;}
+
 .inputGroup {
   display: flex;
   flex-direction: column;
@@ -343,7 +351,7 @@
   color: #94a3b8;
 }
 
-.inputGroup input {
+.inputGroup input, .inputGroup select , .inputGroup input[type="checkbox"]{
   padding: 10px 12px;
   border: 1px solid rgba(37, 99, 235, 0.15);
   border-radius: 8px;
@@ -352,9 +360,26 @@
   background: #f8faff;
 }
 
-.inputGroup input:focus {
+.inputGroup input:focus, .inputGroup select:focus  {
   border-color: rgb(29, 29, 71);
   background: white;
+}
+
+.inputGroup select option{
+  border-color: rgb(29, 29, 71);
+  background: white;
+  padding: 10px;
+}
+
+.checkGroup input[type="checkbox"]{
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  appearance: none;
+  background: #f8faff;
+  border: 1px solid rgb(29, 29, 71);
+  border-radius: 4px;
+  position: relative;
 }
 
 .twoInputs {
@@ -381,7 +406,7 @@
   color: #475569;
 }
 
-.editForm button {
+.editForm button, .add-btn-createPage  {
   margin-top: 10px;
   padding: 12px;
   background: rgb(29, 29, 71);
