@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -18,15 +19,15 @@ const ManageAirLines = ({airLines, setAirLines}) => {
 
 
   return (
-    <div className="AirLines">
+    <div className="airLinesPage">
       <div className='airLine-header'>
-      <h2>Manage AirLine ⚙️</h2>
+      <h2 className='pageTitle'>Manage AirLine ⚙️</h2>
       <Link to="/add-airLine" className="add-btn">+ Add New AirLine</Link>
       </div>
 
-      <div className='airLine-card'>
+      <div className='airLine-container'>
         {airLines.map((airLine)=>(
-          <div key={airLine._id} className='airLine-container'>
+          <div key={airLine._id} className='airLine-card'>
             <div className='airLine-logo'>
               {airLine.logoURL && (
                 <img src={airLine.logoURL} alt={airLine.airLineName}/>
@@ -35,7 +36,7 @@ const ManageAirLines = ({airLines, setAirLines}) => {
 
             <div className='airLine-info'>
               <h3>{airLine.airLineName}</h3>
-              <p>ID: {airLine._id}</p>
+              <p><strong>Code:</strong> {airLine.airLineCode}</p>
             </div>
 
             <div className='actions'>
@@ -43,7 +44,7 @@ const ManageAirLines = ({airLines, setAirLines}) => {
 
             <button onClick={()=> handelDelete(airLine._id)} className='delete-btn'>Delete 🗑️</button>
             </div>
-          </div> 
+          </div>
         ))}
       </div>
     </div>
