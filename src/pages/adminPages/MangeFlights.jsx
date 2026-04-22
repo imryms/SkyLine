@@ -1,3 +1,4 @@
+import '../FlightPages/flights.css'
 import { Link } from "react-router-dom"
 import axios from "axios"
 
@@ -17,14 +18,14 @@ const ManageFlights = ({ flights, setFlights }) => {
   }
 
   return (
-    <div className="Flights">
-      <h2>Manage Flights 🔧</h2>
+    <div className="flightsPage">
+      <h2 className='pageTitle'>Manage Flights ⚙️</h2>
       <Link to="/add-flight" className="add-btn">
         + Add New Flight
       </Link>
-      <div>
+      <div className='flightsDetailGrid'>
         {flights.map((flight) => (
-          <div key={flight._id} className="flight-card">
+          <div key={flight._id} className="flightCard">
             <div className="flight-header">
               <h3>{flight.airLineCode?.airLineName || "AirLine"}</h3>
               <span className="flight-num">{flight.flightNum}</span>
@@ -49,6 +50,7 @@ const ManageFlights = ({ flights, setFlights }) => {
               </p>
             </div>
 
+            <div className='btns-grid'>
             <Link to={`/edit-flight/${flight._id}`} className="edit-btn">
               Edit🔧
             </Link>
@@ -61,6 +63,7 @@ const ManageFlights = ({ flights, setFlights }) => {
             >
               Delete 🗑️
             </button>
+            </div>
           </div>
         ))}
       </div>
