@@ -294,7 +294,7 @@
   font-size: 12px;
 }
 
-.route,
+.rout,
 .passengers,
 .total {
   display: flex;
@@ -302,14 +302,14 @@
   gap: 5px;
 }
 
-.route span,
+.rout span,
 .passengers span,
 .total span {
   font-size: 12px;
   color: #6b7280;
 }
 
-.route p {
+.rout p {
   font-weight: 600;
   color: #111827;
   margin: 0;
