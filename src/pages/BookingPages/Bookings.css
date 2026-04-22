@@ -1,0 +1,534 @@
+/* Booking Page */
+.bookingPage {
+  min-height: calc(100vh - 60px);
+  background: #f8fbff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.bookingCards {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.bookingTitle {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e1e3f;
+  margin: 0;
+}
+
+.flightInfo {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.flightInfo p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.flightInfo span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.formFull {
+  grid-column: 1 / -1;
+}
+
+.bookingForm label {
+  font-size: 14px;
+  color: #374151;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.bookingForm select,
+.bookingForm input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+}
+
+.bookingForm select:focus,
+.bookingForm input:focus {
+  border-color: #1e1e3f;
+}
+
+.bookBtn {
+  width: 100%;
+  background: #1e1e3f;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.bookBtn:hover {
+  background: #2d2d5f;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.bookingLoading {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #1e1e3f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Success page */
+.successCard {
+  width: 100%;
+  max-width: 550px;
+  height: 410px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 25px;
+}
+
+.successTitle {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1e1e3f;
+}
+
+.detailsBox {
+  margin-bottom: 25px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.detailRow span {
+  color: #6b7280;
+}
+
+.detailRow p {
+  color: #111827;
+  font-weight: 500;
+}
+
+.passengersList p {
+  font-size: 13px;
+  color: #374151;
+}
+
+.tag {
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.total {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 10px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.primaryBtn {
+  background: #1e1e3f;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.primaryBtn:hover {
+  background: #2d2d5f;
+}
+
+.secondaryBtn {
+  background: #e5e7eb;
+  color: #111827;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.secondaryBtn:hover {
+  background: #d1d5db;
+}
+
+.noBookingPage {
+  min-height: calc(100vh - 60px);
+  background: #f8fbff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+  padding: 20px;
+}
+
+.noBookingPage p {
+  color: #6b7280;
+  max-width: 400px;
+}
+
+/* My Bookings Page */
+.myBookingsPage {
+  min-height: calc(100vh - 60px);
+  background: #f8fbff;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.pageTitle {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto 30px auto;
+  text-align: center;
+  color: #1e1e3f;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.emptyState {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
+}
+
+.bookingsGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.bookingsCard {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+  box-sizing: border-box;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.ticketType {
+  background: #1e1e3f;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.route,
+.passengers,
+.total {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.route span,
+.passengers span,
+.total span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.route p {
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.passengers div p {
+  font-size: 13px;
+  margin: 2px 0;
+  color: #374151;
+}
+
+.total p {
+  font-weight: 700;
+  color: #1e1e3f;
+  margin: 0;
+}
+
+.detailsBtn {
+  margin-top: 10px;
+  background: #1e1e3f;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.detailsBtn:hover {
+  background: #2d2d5f;
+}
+
+/* Booking Details Page */
+
+.booking-details-container {
+  padding: 40px 20px;
+  min-height: calc(100vh - 60px);
+  background: #f8fbff;
+}
+
+.booking-card {
+  max-width: 750px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+  color: #1e1e3f;
+}
+
+.flight-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.flight-info p {
+  font-size: 15px;
+  color: #111827;
+  margin: 4px 0;
+}
+
+.section {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.passengers-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.passenger-row {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 13px;
+  color: #374151;
+}
+
+.passenger-row p {
+  margin: 2px 0;
+}
+
+.total {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #e5e7eb;
+  font-weight: 600;
+  color: #1e1e3f;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.buttons button {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+
+.buttons button:first-child {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.buttons button:first-child:hover {
+  background: #d1d5db;
+}
+
+.buttons button:last-child {
+  background: rgb(29, 29, 71);
+  color: white;
+}
+
+.buttons button:last-child:hover {
+  background: #1d4ed8;
+}
+
+.loading {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6b7280;
+}
+
+/* Manage Booking Page */
+.managePage {
+  padding: 40px 20px;
+  min-height: calc(100vh - 60px);
+  background: #f8fbff;
+}
+
+.manageTitle {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e1e3f;
+  margin-bottom: 25px;
+}
+
+.tableWrapper {
+  max-width: 1100px;
+  margin: auto;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.table th {
+  background: #1e1e3f;
+  color: white;
+  padding: 14px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.table td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #111827;
+}
+
+.table tr:hover {
+  background: #f9fafb;
+}
+
+.table select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  outline: none;
+}
+
+.status.Pending {
+  background: #fef3c7;
+}
+
+.status.Confirmed {
+  background: #dcfce7;
+}
+
+.status.Cancelled {
+  background: #fee2e2;
+}
+
+.deleteBtn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.deleteBtn:hover {
+  background: #dc2626;
+}

@@ -1,3 +1,4 @@
+import "./Bookings.css"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
@@ -22,37 +23,55 @@ const MyBookings = () => {
   }, [])
 
   return (
-    <div className="my-bookings">
-      <h2>My Bookings ✈️</h2>
+    <div className="myBookingsPage">
+      <h2 className="pageTitle">My Bookings ✈️</h2>
 
       {bookings.length === 0 ? (
-        <p>No bookings yet</p>
+        <div className="emptyState">
+          <p>No bookings yet</p>
+        </div>
       ) : (
-        bookings.map((b) => (
-          <div key={b._id} className="booking-card">
-            <p>Type: {b.ticketType}</p>
-            {b.flightID && (
-              <p>
-                Route: {b.flightID.departureAirport} →{" "}
-                {b.flightID.arrivalAirport}
-              </p>
-            )}
-            <p>
-              Passengers:{" "}
-              {b.passengers.map((p, i) => (
-                <span key={i}>
-                  {p.type}({p.quantity}){" "}
-                </span>
-              ))}
-            </p>
+        <div className="bookingsGrid">
+          {bookings.map((b) => (
+            <div key={b._id} className="bookingsCard">
+              <div className="cardHeader">
+                <p className="ticketType">{b.ticketType}</p>
+              </div>
 
-            <p>Total: {b.totalPrice} BD</p>
+              {b.flightID && (
+                <div className="route">
+                  <span>Route</span>
+                  <p>
+                    {b.flightID.departureAirport} → {b.flightID.arrivalAirport}
+                  </p>
+                </div>
+              )}
 
-            <button onClick={() => navigate(`/booking-details/${b._id}`)}>
-              View Details
-            </button>
-          </div>
-        ))
+              <div className="passengers">
+                <span>Passengers</span>
+                <div>
+                  {b.passengers.map((p, i) => (
+                    <p key={i}>
+                      {p.type} ({p.quantity})
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="total">
+                <span>Total</span>
+                <p>{b.totalPrice} BD</p>
+              </div>
+
+              <button
+                className="detailsBtn"
+                onClick={() => navigate(`/booking-details/${b._id}`)}
+              >
+                View Details
+              </button>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   )
