@@ -1,4 +1,4 @@
-import './flights.css'
+import "./flights.css"
 import { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import axios from "axios"
@@ -21,14 +21,14 @@ const FlightDetails = () => {
   }, [id])
 
   if (!flight) {
-    return (
-      <div className="loading">Loading Flights Details ✈️...</div>
-    )
+    return <div className="loading">Loading Flights Details ✈️...</div>
   }
 
   return (
     <div className="flightDetailsPage">
-      <Link to="/flights" className="backLink">← Back</Link>
+      <Link to="/flights" className="backLink">
+        ← Back
+      </Link>
 
       <div className="airlineHeader">
         <img
@@ -58,9 +58,16 @@ const FlightDetails = () => {
       </div>
 
       <div className="infoSection">
-        <p><strong>Date:</strong> {new Date(flight.flightDate).toLocaleDateString()}</p>
-        <p><strong>Type:</strong> {flight.isDirect ? "Direct" : "Connecting"}</p>
-        <p><strong>Duration:</strong> {flight.duration}</p>
+        <p>
+          <strong>Date:</strong>{" "}
+          {new Date(flight.flightDate).toLocaleDateString()}
+        </p>
+        <p>
+          <strong>Type:</strong> {flight.isDirect ? "Direct" : "Connecting"}
+        </p>
+        <p>
+          <strong>Duration:</strong> {flight.duration}
+        </p>
       </div>
 
       <div className="prices">
