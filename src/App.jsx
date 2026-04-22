@@ -102,6 +102,17 @@ function App() {
             }
           />
 
+          <Route
+          path="/edit-flight/:id"
+          element={
+            <EditFlight
+              flights={flights}
+              setFlights={setFlights}
+              airLines={airLines}
+            />
+          }
+        />
+
           <Route path="/edit-profile" element={<EditProfile />} />
 
           <Route

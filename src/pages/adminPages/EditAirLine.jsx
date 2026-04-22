@@ -1,3 +1,4 @@
+import './airline.css'
 import { useEffect, useState } from "react"
 import {useParams, useNavigate} from "react-router-dom"
 import axios from "axios"
@@ -56,48 +57,68 @@ const EditAirLine =({ airLines, setAirLines }) => {
     }
   }
 
-  return(
-    <div className="AirLines">
-      <form className="AirLines-form" onSubmit={handleSubmit}>
-        <h1>Edit AirLine ✏️</h1>
+  return (
+  <div className="editAirlinePage">
 
-        <label>airLine Name: </label>
-        <input
-        type="text"
-        name="airLineName"
-        onChange={handleChange}
-        value={formData.airLineName}
-        autoComplete="off"/>
-
-        <label>airLine Code: </label>
-        <input
-        type="text"
-        name="airLineCode"
-        onChange={handleChange}
-        value={formData.airLineCode}
-        autoComplete="off"/>
-
-        <label>logo URL: </label>
-        <input
-        type="text"
-        name="logoURL"
-        onChange={handleChange}
-        value={formData.logoURL}
-        autoComplete="off"/>
-
-        <label>contact Number: </label>
-        <input
-        type="number"
-        name="contactNumber"
-        onChange={handleChange}
-        value={formData.contactNumber}
-        autoComplete="off"/>
-
-
-        <button type="submit">Update AirLines</button>
-      </form>
+    <div className="profileHeader">
+      <h1>Edit Airline </h1>
+      <p>Update airline information</p>
     </div>
-  )
+
+    <form className="editForm" onSubmit={handleSubmit}>
+
+      <div className="twoInputs">
+        <div className="inputGroup">
+          <label>Airline Name</label>
+          <input
+            type="text"
+            name="airLineName"
+            onChange={handleChange}
+            value={formData.airLineName}
+            autoComplete="off"
+          />
+        </div>
+
+        <div className="inputGroup">
+          <label>Airline Code</label>
+          <input
+            type="text"
+            name="airLineCode"
+            onChange={handleChange}
+            value={formData.airLineCode}
+            autoComplete="off"
+          />
+        </div>
+      </div>
+
+      <div className="inputGroup">
+        <label>Logo URL</label>
+        <input
+          type="text"
+          name="logoURL"
+          onChange={handleChange}
+          value={formData.logoURL}
+          autoComplete="off"
+        />
+      </div>
+
+      <div className="inputGroup">
+        <label>Contact Number</label>
+        <input
+          type="number"
+          name="contactNumber"
+          onChange={handleChange}
+          value={formData.contactNumber}
+          autoComplete="off"
+        />
+      </div>
+
+      <button type="submit">Update Airline</button>
+
+    </form>
+
+  </div>
+)
 }
 
 export default EditAirLine
