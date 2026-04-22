@@ -62,7 +62,7 @@ const MyBookings = () => {
               </div>
 
               {b.flightID && (
-                <div className="route">
+                <div className="rout">
                   <span>Route</span>
                   <p>
                     {b.flightID.departureAirport} → {b.flightID.arrivalAirport}
