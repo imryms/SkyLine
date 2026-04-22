@@ -7,23 +7,24 @@ import { useEffect, useState } from "react"
 import { jwtDecode } from "jwt-decode"
 
 import Home from "./pages/Home"
-import Flights from "./pages/FlightPages/Flights"
-import FlightDetails from "./pages/FlightPages/FlightDetails"
-import Booking from "./pages/BookingPages/Booking"
-import MyBookings from "./pages/BookingPages/MyBookings"
 import Login from "./pages/authPages/Login"
 import Register from "./pages/authPages/Register"
-import FlightForm from "./pages/adminPages/AddFlight"
-import AirLineForm from "./pages/adminPages/AddAirLine"
 import Profile from "./pages/profilePages/Profile"
 import EditProfile from "./pages/profilePages/EditProfile"
 import ChangePassword from "./pages/authPages/ChangePassword"
 import ManageFlights from "./pages/adminPages/MangeFlights"
 import ManageAirLines from "./pages/adminPages/ManageAirLines"
-import BookingSuccess from "./pages/BookingPages/BookingSuccess"
-import BookingDetails from "./pages/BookingPages/BookingDetails"
+import FlightForm from "./pages/adminPages/AddFlight"
+import AirLineForm from "./pages/adminPages/AddAirLine"
 import EditFlight from "./pages/adminPages/EditFlight"
 import EditAirLine from "./pages/adminPages/EditAirLine"
+import ManageBookings from "./pages/adminPages/MangeBookings"
+import Flights from "./pages/FlightPages/Flights"
+import FlightDetails from "./pages/FlightPages/FlightDetails"
+import Booking from "./pages/BookingPages/Booking"
+import MyBookings from "./pages/BookingPages/MyBookings"
+import BookingSuccess from "./pages/BookingPages/BookingSuccess"
+import BookingDetails from "./pages/BookingPages/BookingDetails"
 
 function App() {
   const [user, setUser] = useState(null)
@@ -101,10 +102,7 @@ function App() {
             }
           />
 
-          <Route
-            path="/edit-flight/:id"
-            element={<EditFlight flights={flights} setFlights={setFlights} />}
-          />
+          <Route path="/edit-profile" element={<EditProfile />} />
 
           <Route
             path="/manage-airLines"
@@ -126,6 +124,7 @@ function App() {
               <EditAirLine airLines={airLines} setAirLines={setAirLines} />
             }
           />
+          <Route path="/manage-bookings" element={<ManageBookings />} />
 
           <Route
             path="/booking/:id"
