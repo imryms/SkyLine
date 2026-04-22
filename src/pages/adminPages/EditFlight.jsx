@@ -1,3 +1,4 @@
+import '../../pages/FlightPages/flights.css'
 import { useEffect, useState } from "react"
 import {useParams, useNavigate} from "react-router-dom"
 import axios from "axios"
@@ -93,119 +94,170 @@ const EditFlight =({ flights, setFlights }) => {
     }
   }
 
-  return(
-    <div className="Flights">
-      <form className="Flights-form" onSubmit={handleSubmit}>
-        <h1>Edit Flight ✏️</h1>
-
-        <label>Flight Number:</label>
-        <input
-        type="text"
-        name="flightNum"
-        onChange={handleChange}
-        value={formData.flightNum}
-        autoComplete="off"/>
-
-        <label>AirLine ID:</label>
-        <input
-        type="text"
-        name="airLineCode"
-        onChange={handleChange}
-        value={formData.airLineCode}
-        autoComplete="off"/>
-
-        <label>Departure Airport:</label>
-        <input
-        type="text"
-        name="departureAirport"
-        onChange={handleChange}
-        value={formData.departureAirport}
-        autoComplete="off"/>
-
-        <label>Arrival Airport:</label>
-        <input
-        type="text"
-        name="arrivalAirport"
-        onChange={handleChange}
-        value={formData.arrivalAirport}
-        autoComplete="off"/>
-
-        <label>Fight Date:</label>
-        <input
-        type="date"
-        name="flightDate"
-        onChange={handleChange}
-        value={formData.flightDate}
-        autoComplete="off"/>
-
-        <label>Departure Time:</label>
-        <input
-        type="time"
-        name="departureTime"
-        onChange={handleChange}
-        value={formData.departureTime}
-        autoComplete="off"/>
-
-        <label>Arrival Time</label>
-        <input
-        type="time"
-        name="arrivalTime"
-        onChange={handleChange}
-        value={formData.arrivalTime}
-        autoComplete="off"/>
-
-        <label>First Class Price</label>
-        <input
-        type="number"
-        name="price.firstClass"
-        onChange={handleChange}
-        value={formData.price.firstClass}
-        autoComplete="off"/>
-
-        <label>Business Class Price</label>
-        <input
-        type="number"
-        name="price.business"
-        onChange={handleChange}
-        value={formData.price.business}
-        autoComplete="off"/>
-
-        <label>Economy Price</label>
-        <input
-        type="number"
-        name="price.economy"
-        onChange={handleChange}
-        value={formData.price.economy}
-        autoComplete="off"/>
-
-        <label>Available Seats:</label>
-        <input
-        type="number"
-        name="availableSeats"
-        onChange={handleChange}
-        value={formData.availableSeats}
-        autoComplete="off"/>
-
-        <label>Duration:</label>
-        <input
-        type="text"
-        name="duration"
-        onChange={handleChange}
-        value={formData.duration}
-        autoComplete="off"/>
-
-        <label>Direct</label>
-        <input
-        type="checkbox"
-        name="isDirect"
-        onChange={handleChange}
-        checked={formData.isDirect}
-        autoComplete="off"/>
-
-        <button type="submit">Update Flight</button>
-      </form>
+ return (
+  <div className="editFlightPage">
+    <div className="profileHeader">
+      <h1>Edit Flight </h1>
+      <p>Update flight information</p>
     </div>
-  )
+
+    <form className="editForm" onSubmit={handleSubmit}>
+      <div className="twoInputs">
+        <div className="inputGroup">
+          <label>Flight Number:</label>
+          <input
+            type="text"
+            name="flightNum"
+            onChange={handleChange}
+            value={formData.flightNum}
+            autoComplete="off"
+          />
+        </div>
+
+        <div className="inputGroup">
+          <label>AirLine ID:</label>
+          <input
+            type="text"
+            name="airLineCode"
+            onChange={handleChange}
+            value={formData.airLineCode}
+            autoComplete="off"
+          />
+        </div>
+      </div>
+
+      <div className="twoInputs">
+        <div className="inputGroup">
+          <label>Departure Airport:</label>
+          <input
+            type="text"
+            name="departureAirport"
+            onChange={handleChange}
+            value={formData.departureAirport}
+            autoComplete="off"
+          />
+        </div>
+
+        <div className="inputGroup">
+          <label>Arrival Airport:</label>
+          <input
+            type="text"
+            name="arrivalAirport"
+            onChange={handleChange}
+            value={formData.arrivalAirport}
+            autoComplete="off"
+          />
+        </div>
+      </div>
+
+      <div className="threeInputs">
+        <div className="inputGroup">
+          <label>Flight Date:</label>
+          <input
+            type="date"
+            name="flightDate"
+            onChange={handleChange}
+            value={formData.flightDate}
+            autoComplete="off"
+          />
+        </div>
+
+        <div className="inputGroup">
+          <label>Departure Time:</label>
+          <input
+            type="time"
+            name="departureTime"
+            onChange={handleChange}
+            value={formData.departureTime}
+            autoComplete="off"
+          />
+        </div>
+
+        <div className="inputGroup">
+          <label>Arrival Time:</label>
+          <input
+            type="time"
+            name="arrivalTime"
+            onChange={handleChange}
+            value={formData.arrivalTime}
+            autoComplete="off"
+          />
+        </div>
+      </div>
+
+      <div className="threeInputs">
+        <div className="inputGroup">
+          <label>First Class Price:</label>
+          <input
+            type="number"
+            name="price.firstClass"
+            onChange={handleChange}
+            value={formData.price.firstClass}
+            autoComplete="off"
+          />
+        </div>
+
+        <div className="inputGroup">
+          <label>Business Class Price:</label>
+          <input
+            type="number"
+            name="price.business"
+            onChange={handleChange}
+            value={formData.price.business}
+            autoComplete="off"
+          />
+        </div>
+
+        <div className="inputGroup">
+          <label>Economy Price:</label>
+          <input
+            type="number"
+            name="price.economy"
+            onChange={handleChange}
+            value={formData.price.economy}
+            autoComplete="off"
+          />
+        </div>
+      </div>
+
+      <div className="twoInputs">
+        <div className="inputGroup">
+          <label>Available Seats:</label>
+          <input
+            type="number"
+            name="availableSeats"
+            onChange={handleChange}
+            value={formData.availableSeats}
+            autoComplete="off"
+          />
+        </div>
+
+        <div className="inputGroup">
+          <label>Duration:</label>
+          <input
+            type="text"
+            name="duration"
+            onChange={handleChange}
+            value={formData.duration}
+            autoComplete="off"
+          />
+        </div>
+      </div>
+
+      <div className="checkGroup">
+        <input
+          type="checkbox"
+          name="isDirect"
+          onChange={handleChange}
+          checked={formData.isDirect}
+        />
+        <label>Direct Flight</label>
+      </div>
+
+      <button type="submit">Update Flight</button>
+    </form>
+  </div>
+)
 }
 
 export default EditFlight

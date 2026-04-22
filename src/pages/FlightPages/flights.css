@@ -278,4 +278,100 @@
   margin-top:25px ;
 }
 
+.editFlightPage {
+  min-height: calc(100vh - 60px);
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #eef4ff, #ffffff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profileHeader h1 {
+  font-size: 1.8rem;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.profileHeader p {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.editForm {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.inputGroup label {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.inputGroup input {
+  padding: 10px 12px;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  background: #f8faff;
+}
+
+.inputGroup input:focus {
+  border-color: rgb(29, 29, 71);
+  background: white;
+}
+
+.twoInputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.threeInputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.checkGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.checkGroup label {
+  font-size: 13px;
+  color: #475569;
+}
+
+.editForm button {
+  margin-top: 10px;
+  padding: 12px;
+  background: rgb(29, 29, 71);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.editForm button:hover {
+  background: #1d4ed8;
+}
 
