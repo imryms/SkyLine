@@ -38,7 +38,7 @@ const BookingDetails = () => {
 
   const getFactor = (type) => {
     if (type === "Kids") return 0.75
-    if (type === "Infant") return 0.1
+    if (type === "Infant") return 0.2
     return 1
   }
 
